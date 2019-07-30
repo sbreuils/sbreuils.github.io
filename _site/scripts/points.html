@@ -1,0 +1,133 @@
+<SCRIPT SRC="https://unpkg.com/ganja.js"></SCRIPT>
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+// Create a Clifford Algebra with 2,0,1 metric. 
+
+
+
+Algebra(3,1,()=>{
+    
+    var ei = 1e4-1e3,           // e-infinite
+      eo = 0.5*(1e4+1e3);     // e-origin
+    // We work in dual space so we define our points to be bivectors. Ganja.js overloads scientific notation to specify basis blades.
+    // For readability we create a function that converts 2D euclidean coordinates to their 3D bivector representation.
+ var point  = (x,y)=>eo + x*1e1 + y*1e2 + 0.5*(x*x+y*y)*ei,
+      line   = (a,b,c)=>!(a*1e1 + b*1e2 + c*ei),
+      circle = (x,y,r)=>!(point(x,y) - r**2/2*ei);
+    
+var limitGrid = 2.0; // is constant
+var N=20; // can be configured
+
+
+var discreteLineGA = (xo,yo,a,b)=>line(a,-b,b*xo-a*xo);
+var pointInDiscreteLineGA = (point,linee,a,b)=>((!(linee) << point)[0] < (Math.max(Math.abs(a),Math.abs(b))/2.0) ) && ((!(linee) << point)[0] >= -(Math.max(Math.abs(a),Math.abs(b))/2.0));
+
+// a and b in the above function must be redefined
+
+
+
+var discreteLine = (x,y,xo,yo,a,b)=>(a*(x-xo)) - (b*(y-yo));
+var pointInDiscreteLine = (x,y,xo,yo,a,b)=> (discreteLine(x,y,xo,yo,a,b) < (Math.max(Math.abs(a),Math.abs(b))/2.0)) && ( discreteLine(x,y,xo,yo,a,b) >= (-Math.max(Math.abs(a),Math.abs(b))/2.0));
+
+ function projectPointsIntoGrid(myArray){
+    var result = []
+    for(var i =1 ; i < myArray.length ; i+=3){
+        result.push(myArray[i-1],limitGrid*myArray[i]/ ((N-1)/2.0),"")
+    }
+    return result;
+ }
+
+
+var discretePerpendicularLine = (x,y,xo,yo,a,b)=>(b*(x-xo)) + (a*(y-yo));
+var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicularLine(x,y,xo,yo,a,b) < ((2*k+1)*Math.max(Math.abs(a),Math.abs(b))/2.0)) && ( discretePerpendicularLine(x,y,xo,yo,a,b) >= ((2*k-1)*Math.max(Math.abs(a),Math.abs(b))/2.0));
+
+
+    // define the rotation and the translation
+    // Rotator, Translator
+  var translate = (v)  => (1-.5*v^ei),
+      rotate    = (P,a)=> Math.cos(a/2) - Math.sin(a/2)*(1e12-P<<1e12^ei);
+  var reflexion = (P,L)=>0;
+
+
+
+ 	// configuration of the grid
+    var points = [];
+    for(var i=0,len=N;i<len;i++){
+        for(var j=0;j<len;j++){
+            if(i==j){
+                points.push(0xff0000,point((j-((N-1)/2.0)),(i-((N-1)/2.0)) ),"");
+            }else{
+                points.push(0x00ff00,point((j-((N-1)/2.0)),(i-((N-1)/2.0)) ),"");
+            }
+        }
+    }
+    //console.log("number of points in the drs with GA = "+pointsOfDrsLineGA.length);
+    //console.log("points are = "+pointsOfDrsLineGA);
+
+
+    // construction of the perpendicular lines
+    //var pointsOfPdsLine = [];
+  //  for(var i=0;i<points.length;i+=2){
+        // here 
+
+//        if( pointInKDiscretePerpendicularLine(points[i]<<1e1,points[i]<<1e2,xo,yo,a,b,0) ){
+    //        pointsOfPdsLine.push(points[i],"");
+    //    }
+    //}
+
+    // determine the intersection point between the two lines
+    // two cases
+    // another question is : what is X(y) defined in the paper
+
+    // classify the points with respect to the line, i.e. 
+
+
+    //  
+
+    // 
+
+    // classification of the points with respect to the position of the point
+    
+
+    // 
+
+
+    // transform the points such that it is in the range [-2,2]^2
+    var newGridPoints = projectPointsIntoGrid(points);
+    //var DRSL = projectPointsIntoGrid(pointsOfDrsLine);
+    //var DRSL_GA = projectPointsIntoGrid(pointsOfDrsLineGA);
+
+    //var PDSL = projectPointsIntoGrid(pointsOfPdsLine);
+
+
+    // Define the line y=x-0.5
+    //var L=line(-2,1,0.5)
+    
+    // Or by joining two points. We define M as a function so it will update when C or A are dragged.
+    //var M=()=>C&A;
+
+
+    //try the animation of the transformations
+    //var dirVectorLine = ;
+      var tr = ()=>translate( 2*Math.sin(performance.now()/1000)*1e2 ),
+      //ro = ()=>rotate(p1,performance.now()/1000)*tr,
+      p1 = ()=>tr*point( xo, yo )*(~tr);
+      //p2 = ()=>ro>>>(point( 0.75, 0 ));
+    
+    // Points can also be found by intersecting two lines. We similarly define D as a function for interactive updates. 
+    //var D=()=>L^M;
+    
+    // We now use the graph function to create an SVG object that visualises our algebraic elements. The graph function accepts
+    // an array of items that it will render in order. It can render points, lines, labels, colors, line segments and polygons.
+
+    // for(var i=0,len=N;i<len;i++){
+    document.body.appendChild(this.graph([...newGridPoints], {conformal:true,conformal:true,animate:true},{grid:true}));
+
+    
+});
+</script>
+</body>
+</html> 

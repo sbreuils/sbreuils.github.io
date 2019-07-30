@@ -53,17 +53,18 @@ include:
 
 # Plugins (previously gems:)
 plugins:
+  - jekyll-include-cache
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jemoji
-  - jekyll-include-cache
+  
 
 author:
   name   : "Stephane Breuils"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+#  avatar : "/assets/images/bio-photo.jpg"
+  bio    : "Postdoctoral student working under the supervision of Akihiro Sugimoto."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
