@@ -3,6 +3,27 @@ permalink: /about/
 title: "About"
 ---
 
-Juste un essai pour verifier que je peux bien modifier en direct. Merci ! Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
+I work as a postdoctoral fellow at the National Institute of Informatics, Tokyo in the computer science department under the supervision of Prof. Akihiro Sugimoto. My PhD. defense held the 17th of December 2018. My PhD. advisors were Vincent Nozick and Laurent Fuchs. The last version of my PhD. manuscript can be found here. My research concerns Geometric Algebras (Clifford Algebras) implementation with applications for curves and surfaces representation and manipulation.  
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+
+
+## Collaborations
+Here is a list of ongoing collaborations
+- Akihiro Sugimoto (NII)
+- Vincent Nozick (LIGM)
+- Yukiko Kenmochi (CNRS)
+- Werner Benger (CCT)
+- Dietmar Hildenbrand (TU Darmstadt)
+- Eckhard Hitzer (ICU Tokyo)
+
+
+## Research
+- Geometric Algebra
+- Surfaces and curves manipulation
+- Algebra, Architecture and Algorithmic
+
+
+## Professional background
+- since July 2019 : Postdoctoral fellow at NII
+- 2018-2019 : ATER at UPEM (Research and teachings)
+- 2015-2018 : Ph.D. degree in computer sciences at Universite Paris-Est.
