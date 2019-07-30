@@ -17,7 +17,7 @@ title: Stephane Breuils
 email: breuils@nii.ac.jp
 description: >- # this means to ignore newlines until "baseurl:"
   Stephane Breuils Homepage.
-twitter_username: username
+#twitter_username: username
 github_username: sbreuils
 minimal_mistakes_skin: default
 search: true
