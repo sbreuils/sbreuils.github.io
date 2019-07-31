@@ -7,9 +7,13 @@ title: "Software"
 stands for Geometric Algebra Recursive Monster. It is a C++ library generator synthesizing efficient C++ libraries implementing geometric algebras in both low and higher dimensions, with any arbitrary metric. The library generator is designed to produce easy to install, easy to use, effective and numerically stable libraries. The design of the libraries is based on a prefix tree data structure and a recursive scheme for high dimensions. You can find some of the tested algebras with references just below.
 
 ### Easy to use
-Very intuitive way to compute and test Geometric Algebra. Here is an example of computation:
+Very intuitive way to compute and test Geometric Algebra. Here is an example of computation in the Conformal Geometric Algebra framework reproducing the computation of the horizon as seen by an observer in a view point P:
 ```cpp
-int a = b;
+Mvec<double> P  = point<double>(px,py,pz); // view point
+Mvec<double> M  = e0<double>(); // center point of the earth
+Mvec<double> Sphere = M−0.5*r*r* einf<double>();// sphere representing Earth (center M, radius r)
+Mvec<double> K = P + (P | Sphere)*einf<double>();// sphere around P
+Mvec<double> circle = Sphere ^ K;// intersecting circle
 ```
 
 ### Tested algebras with references 
@@ -30,6 +34,6 @@ git clone https://github.com/vincentnozick/garamon.git
 
 
 ## Want to know the details of the implementation
-Please the paper first presented at AGACSE 2018.
+You can take a look at this  [paper](https://hal.archives-ouvertes.fr/hal-02196173/document).
 
 

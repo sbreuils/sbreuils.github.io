@@ -278,9 +278,13 @@
 <p>stands for Geometric Algebra Recursive Monster. It is a C++ library generator synthesizing efficient C++ libraries implementing geometric algebras in both low and higher dimensions, with any arbitrary metric. The library generator is designed to produce easy to install, easy to use, effective and numerically stable libraries. The design of the libraries is based on a prefix tree data structure and a recursive scheme for high dimensions. You can find some of the tested algebras with references just below.</p>
 
 <h3 id="easy-to-use">Easy to use</h3>
-<p>Very intuitive way to compute and test Geometric Algebra. Here is an example of computation:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
-</code></pre></div></div>
+<p>Very intuitive way to compute and test Geometric Algebra. Here is an example of computation in the Conformal Geometric Algebra framework reproducing the computation of the horizon as seen by an observer in a view point P:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">P</span>  <span class="o">=</span> <span class="n">point</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">px</span><span class="p">,</span><span class="n">py</span><span class="p">,</span><span class="n">pz</span><span class="p">);</span> <span class="c1">// view point
+</span><span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">M</span>  <span class="o">=</span> <span class="n">e0</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// center point of the earth
+</span><span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">Sphere</span> <span class="o">=</span> <span class="n">M</span><span class="err">−</span><span class="mf">0.5</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span> <span class="n">einf</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span><span class="c1">// sphere representing Earth (center M, radius r)
+</span><span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">K</span> <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="p">(</span><span class="n">P</span> <span class="o">|</span> <span class="n">Sphere</span><span class="p">)</span><span class="o">*</span><span class="n">einf</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span><span class="c1">// sphere around P
+</span><span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">circle</span> <span class="o">=</span> <span class="n">Sphere</span> <span class="o">^</span> <span class="n">K</span><span class="p">;</span><span class="c1">// intersecting circle
+</span></code></pre></div></div>
 
 <h3 id="tested-algebras-with-references">Tested algebras with references</h3>
 <p>All the the following algebras have their own plugin and code that you can use.</p>
@@ -328,7 +332,7 @@
 </code></pre></div></div>
 
 <h2 id="want-to-know-the-details-of-the-implementation">Want to know the details of the implementation</h2>
-<p>Please the paper first presented at AGACSE 2018.</p>
+<p>You can take a look at this  <a href="https://hal.archives-ouvertes.fr/hal-02196173/document">paper</a>.</p>
 
 
         
