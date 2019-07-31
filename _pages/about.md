@@ -27,3 +27,14 @@ Here is a list of ongoing collaborations
 - since July 2019 : Postdoctoral fellow at NII
 - 2018-2019 : ATER at UPEM (Research and teachings)
 - 2015-2018 : Ph.D. degree in computer sciences at Universite Paris-Est.
+
+## Address
+[JFLI](https://jfliwp.prod.lamp.cnrs.fr/), 国立情報学研究所 (National Institute of Informatics)
+National Center of Sciences
+2-1-2 Hitotsubashi, Chiyoda-ku,
+Tokyo 101-8430,
+JAPAN
+
+Office: 1218
+Tel : +81 (0) 3-4212-2414
+
