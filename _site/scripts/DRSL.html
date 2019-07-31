@@ -9,7 +9,6 @@
 
 
 Algebra(3,1,()=>{
-    
     var ei = 1e4-1e3,           // e-infinite
       eo = 0.5*(1e4+1e3);     // e-origin
     // We work in dual space so we define our points to be bivectors. Ganja.js overloads scientific notation to specify basis blades.
@@ -69,7 +68,7 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
     }
     
 
-    var theta = (performance.now()%90)-45;
+    var theta = ((performance.now()/100)%90)-45;
     var thetaInRad = theta*Math.PI/180;
     var a = Math.sin(thetaInRad); 
     var b = Math.cos(thetaInRad);
@@ -134,10 +133,12 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
 
     //try the animation of the transformations
     //var dirVectorLine = ;
-      var tr = ()=>translate( 2*Math.sin(performance.now()/1000)*1e2 ),
+    var angled = ()=>(performance.now()/1000);
+      var tr = ()=>translate( 2*Math.sin(performance.now()/1000)*1e2 );
       //ro = ()=>rotate(p1,performance.now()/1000)*tr,
-      p1 = ()=>tr*point( xo, yo )*(~tr);
+      var p1 = ()=>tr*point( xo, yo )*(~tr) 
       //p2 = ()=>ro>>>(point( 0.75, 0 ));
+      console.log(p1);
     
     // Points can also be found by intersecting two lines. We similarly define D as a function for interactive updates. 
     //var D=()=>L^M;
@@ -146,7 +147,27 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
     // an array of items that it will render in order. It can render points, lines, labels, colors, line segments and polygons.
 
     // for(var i=0,len=N;i<len;i++){
-    document.body.appendChild(this.graph([...newGridPoints,...DRSL_GA], {conformal:true,animate:true},{grid:false}));
+    document.body.appendChild(this.graph( () => {
+        var time=performance.now()/4000; 
+            var theta = ((performance.now()/100)%90)-45;
+            var thetaInRad = theta*Math.PI/180;
+            var a = Math.sin(thetaInRad); 
+            var b = Math.cos(thetaInRad);
+            var xo = 0;
+            var yo = 0;
+
+
+        // same thing using completely geometric algebra
+            var pointsOfDrsLineGA = [];
+            var theLine = discreteLineGA(xo,yo,a,b);
+            for(var i=1;i<points.length;i+=3){
+                // here 
+                if( pointInDiscreteLineGA(points[i],theLine,a,b) ){
+                    pointsOfDrsLineGA.push(0x0000ff,points[i],"");
+                }
+            }
+            var DRSL_GA = projectPointsIntoGrid(pointsOfDrsLineGA);
+            return [...newGridPoints,...DRSL_GA];}, {conformal:true,animate:true},{grid:true}));
 
     
 });
