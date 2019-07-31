@@ -127,7 +127,7 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
     // an array of items that it will render in order. It can render points, lines, labels, colors, line segments and polygons.
 
     // for(var i=0,len=N;i<len;i++){
-    document.body.appendChild(this.graph([...newGridPoints], {conformal:true,animate:true},{grid:false}));
+    document.body.appendChild(this.graph([...newGridPoints], {conformal:true,animate:true},{grid:false})).style.backgroundColor='transparent';
 
     
 });

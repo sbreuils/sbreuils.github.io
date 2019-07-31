@@ -151,7 +151,7 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
                 }
             }
             var DRSL_GA = projectPointsIntoGrid(pointsOfDrsLineGA);
-            return [...newGridPoints,...DRSL_GA];}, {conformal:true,animate:true},{grid:true}));
+            return [...newGridPoints,...DRSL_GA];}, {canvas:true,conformal:true,animate:true},{grid:true})).style.backgroundColor='transparent';
 
     
 });
