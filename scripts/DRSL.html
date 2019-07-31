@@ -63,28 +63,12 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
             if( (i== len-1-2 && j==2 ) || (i== parseInt(len-1-len/4) && j==2 ) || (i== len-1-2 && j== parseInt(len/5) ) ){
                 points.push(0xff0000,point((j-((N-1)/2.0)),(i-((N-1)/2.0)) ),"");
             }else{
-                points.push(0x75787b,point((j-((N-1)/2.0)),(i-((N-1)/2.0)) ),"");
+                points.push(0xdddddd,point((j-((N-1)/2.0)),(i-((N-1)/2.0)) ),"");
             }
         }
     }
     
 
-    var theta = ((performance.now()/100)%90)-45;
-    var thetaInRad = theta*Math.PI/180;
-    var a = Math.sin(thetaInRad); 
-    var b = Math.cos(thetaInRad);
-    var xo = 0;
-    var yo = 0;
-
-        // same thing using completely geometric algebra
-    var pointsOfDrsLineGA = [];
-    var theLine = discreteLineGA(xo,yo,a,b);
-    for(var i=1;i<points.length;i+=3){
-        // here 
-        if( pointInDiscreteLineGA(points[i],theLine,a,b) ){
-            pointsOfDrsLineGA.push(0x0000ff,points[i],"");
-        }
-    }
 
 
 
@@ -120,7 +104,6 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
     // transform the points such that it is in the range [-2,2]^2
     var newGridPoints = projectPointsIntoGrid(points);
     //var DRSL = projectPointsIntoGrid(pointsOfDrsLine);
-    var DRSL_GA = projectPointsIntoGrid(pointsOfDrsLineGA);
 
     //var PDSL = projectPointsIntoGrid(pointsOfPdsLine);
 
@@ -150,7 +133,7 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
     // for(var i=0,len=N;i<len;i++){
     document.body.appendChild(this.graph( () => {
         var time=performance.now()/4000; 
-            var theta = 30*Math.sin(time);
+            var theta = 25*Math.sin(time);
             var thetaInRad = theta*Math.PI/180;
             var a = Math.sin(thetaInRad); 
             var b = Math.cos(thetaInRad);
