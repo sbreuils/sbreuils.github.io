@@ -69,7 +69,7 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
     }
     
 
-    var theta = 10;
+    var theta = (performance.now()%90)-45;
     var thetaInRad = theta*Math.PI/180;
     var a = Math.sin(thetaInRad); 
     var b = Math.cos(thetaInRad);
