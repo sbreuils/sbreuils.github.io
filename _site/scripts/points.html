@@ -54,13 +54,16 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
 
 
  	// configuration of the grid
+    // construct 3 points that will be translated 
     var points = [];
+
     for(var i=0,len=N;i<len;i++){
+        console.log(parseInt(len-1-len/3));
         for(var j=0;j<len;j++){
-            if(i==j){
+            if( (i== len-1-2 && j==2 ) || (i== parseInt(len-1-len/4) && j==2 ) || (i== len-1-2 && j== parseInt(len/5) ) ){
                 points.push(0xff0000,point((j-((N-1)/2.0)),(i-((N-1)/2.0)) ),"");
             }else{
-                points.push(0x00ff00,point((j-((N-1)/2.0)),(i-((N-1)/2.0)) ),"");
+                points.push(0x75787b,point((j-((N-1)/2.0)),(i-((N-1)/2.0)) ),"");
             }
         }
     }
@@ -124,7 +127,7 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
     // an array of items that it will render in order. It can render points, lines, labels, colors, line segments and polygons.
 
     // for(var i=0,len=N;i<len;i++){
-    document.body.appendChild(this.graph([...newGridPoints], {conformal:true,conformal:true,animate:true},{grid:true}));
+    document.body.appendChild(this.graph([...newGridPoints], {conformal:true,animate:true},{grid:false}));
 
     
 });
