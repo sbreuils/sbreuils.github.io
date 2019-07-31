@@ -34,6 +34,6 @@ git clone https://github.com/vincentnozick/garamon.git
 
 
 ## Want to know the details of the implementation
-You can take a look at this  [paper](https://hal.archives-ouvertes.fr/hal-02196173/document).
+If you want to know more about how we can use trees with Geometric Algebra or just the details of the implementation, please take a look at this [paper](https://hal.archives-ouvertes.fr/hal-02196173/document).
 
 
