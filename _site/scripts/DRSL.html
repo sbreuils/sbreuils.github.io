@@ -18,7 +18,7 @@ Algebra(3,1,()=>{
       line   = (a,b,c)=>!(a*1e1 + b*1e2 + c*ei),
       circle = (x,y,r)=>!(point(x,y) - r**2/2*ei);
     
-var limitGrid = 2.0; // is constant
+var limitGrid = 1.8; // is constant
 var N=20; // can be configured
 
 
@@ -35,7 +35,10 @@ var pointInDiscreteLine = (x,y,xo,yo,a,b)=> (discreteLine(x,y,xo,yo,a,b) < (Math
  function projectPointsIntoGrid(myArray){
     var result = []
     for(var i =1 ; i < myArray.length ; i+=3){
-        result.push(myArray[i-1],limitGrid*myArray[i]/ ((N-1)/2.0),"")
+        // first normalize each point
+        //myArray[i] = -myArray[i]/(myArray[i]<<ei);
+        var consideredPoint = point(limitGrid*myArray[i][1]/ ((N-1)/2.0),limitGrid*myArray[i][2]/ ((N-1)/2.0));
+        result.push(myArray[i-1], consideredPoint,"")
     }
     return result;
  }
@@ -122,7 +125,6 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
       //ro = ()=>rotate(p1,performance.now()/1000)*tr,
       var p1 = ()=>tr*point( xo, yo )*(~tr) 
       //p2 = ()=>ro>>>(point( 0.75, 0 ));
-      console.log(p1);
     
     // Points can also be found by intersecting two lines. We similarly define D as a function for interactive updates. 
     //var D=()=>L^M;

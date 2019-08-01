@@ -14,9 +14,13 @@ Algebra(3,1,()=>{
       eo = 0.5*(1e4+1e3);     // e-origin
     // We work in dual space so we define our points to be bivectors. Ganja.js overloads scientific notation to specify basis blades.
     // For readability we create a function that converts 2D euclidean coordinates to their 3D bivector representation.
- var point  = (x,y)=>eo + x*1e1 + y*1e2 + 0.5*(x*x+y*y)*ei,
+ var point  = (x,y)=> eo + x*1e1 + y*1e2 + 0.5*(x*x+y*y)*ei,
       line   = (a,b,c)=>!(a*1e1 + b*1e2 + c*ei),
       circle = (x,y,r)=>!(point(x,y) - r**2/2*ei);
+
+var  lineFromPoints   = (p1,p2) => (p1^p2^ei);
+
+
     
 var limitGrid = 1.8; // is constant
 var N=20; // can be configured
@@ -26,7 +30,8 @@ var discreteLineGA = (xo,yo,a,b)=>line(a,-b,b*xo-a*xo);
 var pointInDiscreteLineGA = (point,linee,a,b)=>((!(linee) << point)[0] < (Math.max(Math.abs(a),Math.abs(b))/2.0) ) && ((!(linee) << point)[0] >= -(Math.max(Math.abs(a),Math.abs(b))/2.0));
 
 // a and b in the above function must be redefined
-
+// function that is intended to be used to compute the digital
+var pointBetweenDiscreteLinesGA = (point,linee,a,b)=>((!(linee) << point)[0] < (Math.max(Math.abs(a),Math.abs(b))/2.0) ) && ((!(linee) << point)[0] >= -(Math.max(Math.abs(a),Math.abs(b))/2.0));
 
 
 var discreteLine = (x,y,xo,yo,a,b)=>(a*(x-xo)) - (b*(y-yo));
@@ -48,6 +53,11 @@ var discretePerpendicularLine = (x,y,xo,yo,a,b)=>(b*(x-xo)) + (a*(y-yo));
 var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicularLine(x,y,xo,yo,a,b) < ((2*k+1)*Math.max(Math.abs(a),Math.abs(b))/2.0)) && ( discretePerpendicularLine(x,y,xo,yo,a,b) >= ((2*k-1)*Math.max(Math.abs(a),Math.abs(b))/2.0));
 
 
+var discretePerpendicularLineGA = (x,y,xo,yo,a,b)=>(b*(x-xo)) + (a*(y-yo));
+var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicularLine(x,y,xo,yo,a,b) < ((2*k+1)*Math.max(Math.abs(a),Math.abs(b))/2.0)) && ( discretePerpendicularLine(x,y,xo,yo,a,b) >= ((2*k-1)*Math.max(Math.abs(a),Math.abs(b))/2.0));
+
+
+
     // define the rotation and the translation
     // Rotator, Translator
   var translate = (v)  => (1-.5*v^ei),
@@ -61,7 +71,6 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
     var points = [];
 
     for(var i=0,len=N;i<len;i++){
-        console.log(parseInt(len-1-len/3));
         for(var j=0;j<len;j++){
             if( (i== len-1-2 && j==2 ) || (i== parseInt(len-1-len/4) && j==2 ) || (i== len-1-2 && j== parseInt(len/5) ) ){
                 points.push(0xff0000,point((j-((N-1)/2.0)),(i-((N-1)/2.0)) ),"");
@@ -125,6 +134,12 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
       //ro = ()=>rotate(p1,performance.now()/1000)*tr,
       var p1 = ()=>tr*point( xo, yo )*(~tr) 
       //p2 = ()=>ro>>>(point( 0.75, 0 ));
+
+
+
+      var Tp = (vector)=>translate( vector );
+
+
     
     // Points can also be found by intersecting two lines. We similarly define D as a function for interactive updates. 
     //var D=()=>L^M;
@@ -136,25 +151,83 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
     document.body.appendChild(this.graph( () => {
         var time=performance.now()/4000; 
             var theta = 25*Math.sin(time);
-            var thetaInRad = theta*Math.PI/180;
+            var thetaInRad = theta*Math.PI/180; // theta*
             var a = Math.sin(thetaInRad); 
             var b = Math.cos(thetaInRad);
             var xo = 0;
             var yo = 0;
 
+            var ptOrigin = point(0,0);
+
 
         // same thing using completely geometric algebra
             var pointsOfDrsLineGA = [];
+            var perpendicularVectors = [];
+            var reflexionPoints = [];
             var theLine = discreteLineGA(xo,yo,a,b);
             for(var i=1;i<points.length;i+=3){
                 // here 
                 if( pointInDiscreteLineGA(points[i],theLine,a,b) ){
                     pointsOfDrsLineGA.push(0x0000ff,points[i],"");
+                    // compute the rejection of the point into the line
+                    var orthoVector = (points[i]^theLine*(theLine^-1));
+                    // and normalize it
+                    orthoVector = orthoVector/Math.sqrt(orthoVector<<orthoVector);
+                    //console.log("ortho vector ="+orthoVector);
+
+                    var translatedPointWrong = (Tp(orthoVector) >>> points[i]);
+                    var translatedPoint = translatedPointWrong//point(translatedPointWrong[1]/translatedPointWrong[3],translatedPointWrong[2]/translatedPointWrong[3]);
+
+                    //console.log("translated point = "+translatedPoint)
+
+                    perpendicularVectors.push(0x00dd00,translatedPoint,"");
+
+                    // again compute the discrete line whose
+                    
+
                 }
             }
-            var DRSL_GA = projectPointsIntoGrid(pointsOfDrsLineGA);
-            return [...newGridPoints,...DRSL_GA];}, {canvas:true,conformal:true,animate:true},{grid:true})).style.backgroundColor='transparent';
 
+
+            var discretePerLinesGA = [];
+            var indexNearZero = 1;
+            for(var i=1;i<pointsOfDrsLineGA.length;i+=3){
+                var obtainedLine = lineFromPoints(pointsOfDrsLineGA[i],perpendicularVectors[i]);
+                if(Math.abs(pointsOfDrsLineGA[i][1]) < Math.abs(pointsOfDrsLineGA[indexNearZero][1]) ){
+                    indexNearZero=i;
+                }
+                discretePerLinesGA.push(0x00dd00, obtainedLine, "");
+            }
+
+
+            var pointsOfPDSLineGADis = [];
+
+
+            for(var i=1;i<points.length;i+=3){
+                // here 
+                if( pointInDiscreteLineGA(points[i],discretePerLinesGA[indexNearZero],a,b) ){
+                    pointsOfPDSLineGADis.push(0xff0000,points[i],"");
+                }
+            }
+
+
+            var DRSL_GA = projectPointsIntoGrid(pointsOfDrsLineGA);
+            var PDSL_GA = projectPointsIntoGrid(pointsOfPDSLineGADis);
+            
+
+
+
+                
+
+
+
+            // from points of drsl and points from perpendicular vectors, compute the lines orthogonal to the drsl
+
+            return [...newGridPoints, ...DRSL_GA,...PDSL_GA]}, {conformal:true,animate:true,grid:false})).style.backgroundColor='transparent';
+
+            // test: take each point on the line and compute the orthogonal unit vector
+            //return [point(DRSL_GA[1][1],DRSL_GA[1][2]),point(PDSL_GA[1][1],PDSL_GA[1][2]), lineFromPoints(DRSL_GA[1],PDSL_GA[1])];}, {conformal:true,animate:true,grid:false})).style.backgroundColor='transparent';
+//...newGridPoints,...DRSL_GA,...PDSL_GA, 
     
 });
 </SCRIPT></BODY>
