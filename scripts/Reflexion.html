@@ -162,7 +162,7 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
     // for(var i=0,len=N;i<len;i++){
     document.body.appendChild(this.graph( () => {
         //var time=performance.now()/4000; 
-            var theta = 10;//*Math.sin(time);
+            var theta = 10*Math.sin(time);
             var thetaInRad = theta*Math.PI/180; // theta*
             var a = Math.sin(thetaInRad); 
             var b = Math.cos(thetaInRad);
