@@ -161,7 +161,7 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
 
     // for(var i=0,len=N;i<len;i++){
     document.body.appendChild(this.graph( () => {
-        //var time=performance.now()/4000; 
+            var time=performance.now()/4000; 
             var theta = 10*Math.sin(time);
             var thetaInRad = theta*Math.PI/180; // theta*
             var a = Math.sin(thetaInRad); 
@@ -332,7 +332,7 @@ var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicu
 
             // from points of drsl and points from perpendicular vectors, compute the lines orthogonal to the drsl
 
-            return [pointsBackReflected]}, {conformal:true,animate:true,grid:false})).style.backgroundColor='transparent';
+            return [...pointsReflected]}, {conformal:true,animate:true,grid:false})).style.backgroundColor='transparent';
 
             // test: take each point on the line and compute the orthogonal unit vector
             //return [point(DRSL_GA[1][1],DRSL_GA[1][2]),point(PDSL_GA[1][1],PDSL_GA[1][2]), lineFromPoints(DRSL_GA[1],PDSL_GA[1])];}, {conformal:true,animate:true,grid:false})).style.backgroundColor='transparent';
