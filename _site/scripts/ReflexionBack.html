@@ -1,0 +1,342 @@
+
+<HEAD>
+  <SCRIPT SRC="https://unpkg.com/ganja.js"></SCRIPT>
+</HEAD>
+
+<BODY><SCRIPT>
+
+// Create a Clifford Algebra with 2,0,1 metric. 
+
+
+
+Algebra(3,1,()=>{
+    var ei = 1e4-1e3,           // e-infinite
+      eo = 0.5*(1e4+1e3);     // e-origin
+    // We work in dual space so we define our points to be bivectors. Ganja.js overloads scientific notation to specify basis blades.
+    // For readability we create a function that converts 2D euclidean coordinates to their 3D bivector representation.
+ var point  = (x,y)=> eo + x*1e1 + y*1e2 + 0.5*(x*x+y*y)*ei,
+      line   = (a,b,c)=>!(a*1e1 + b*1e2 + c*ei),
+      circle = (x,y,r)=>!(point(x,y) - r**2/2*ei);
+
+var  lineFromPoints   = (p1,p2) => (p1^p2^ei);
+
+
+    
+var limitGrid = 1.8; // is constant
+var N=20; // can be configured
+
+
+var discreteLineGA = (xo,yo,a,b)=>line(a,-b,b*xo-a*xo);
+var pointInDiscreteLineGA = (point,linee,a,b)=>((!(linee) << point)[0] < (Math.max(Math.abs(a),Math.abs(b))/2.0) ) && ((!(linee) << point)[0] >= -(Math.max(Math.abs(a),Math.abs(b))/2.0));
+
+// a and b in the above function must be redefined
+// function that is intended to be used to compute the digital
+var pointBetweenDiscreteLinesGA = (point,linee,a,b)=>((!(linee) << point)[0] < (Math.max(Math.abs(a),Math.abs(b))/2.0) ) && ((!(linee) << point)[0] >= -(Math.max(Math.abs(a),Math.abs(b))/2.0));
+
+
+var discreteLine = (x,y,xo,yo,a,b)=>(a*(x-xo)) - (b*(y-yo));
+var pointInDiscreteLine = (x,y,xo,yo,a,b)=> (discreteLine(x,y,xo,yo,a,b) < (Math.max(Math.abs(a),Math.abs(b))/2.0)) && ( discreteLine(x,y,xo,yo,a,b) >= (-Math.max(Math.abs(a),Math.abs(b))/2.0));
+
+ function projectPointsIntoGrid(myArray){
+    var result = []
+    for(var i =1 ; i < myArray.length ; i+=3){
+        // first normalize each point
+        //myArray[i] = -myArray[i]/(myArray[i]<<ei);
+        var consideredPoint = point(limitGrid*myArray[i][1]/ ((N-1)/2.0),limitGrid*myArray[i][2]/ ((N-1)/2.0));
+        result.push(myArray[i-1], consideredPoint,"")
+    }
+    return result;
+ }
+
+
+var discretePerpendicularLine = (x,y,xo,yo,a,b)=>(b*(x-xo)) + (a*(y-yo));
+var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicularLine(x,y,xo,yo,a,b) < ((2*k+1)*Math.max(Math.abs(a),Math.abs(b))/2.0)) && ( discretePerpendicularLine(x,y,xo,yo,a,b) >= ((2*k-1)*Math.max(Math.abs(a),Math.abs(b))/2.0));
+
+
+var discretePerpendicularLineGA = (x,y,xo,yo,a,b)=>(b*(x-xo)) + (a*(y-yo));
+var pointInKDiscretePerpendicularLine = (x,y,xo,yo,a,b,k) => (discretePerpendicularLine(x,y,xo,yo,a,b) < ((2*k+1)*Math.max(Math.abs(a),Math.abs(b))/2.0)) && ( discretePerpendicularLine(x,y,xo,yo,a,b) >= ((2*k-1)*Math.max(Math.abs(a),Math.abs(b))/2.0));
+
+
+
+
+
+    // define the rotation and the translation
+    // Rotator, Translator
+  var translate = (v)  => (1-.5*v^ei),
+      rotate    = (P,a)=> Math.cos(a/2) - Math.sin(a/2)*(1e12-P<<1e12^ei);
+  var reflexion = (P,L)=>0;
+
+
+ var reflectPoints = function(listOfPoints,line){
+    var listOfReflectedPoints = []
+    for(var i=1;i<listOfPoints.length;i+=3)
+    {
+        // compute the reflection of the considered point of listOfPoints with respect to the line
+        listOfReflectedPoints.push(listOfPoints[i-1], -line*listOfPoints[i]*(line^(-1)) , listOfPoints[i+1] )
+    }
+    return listOfReflectedPoints;
+ } 
+
+
+ 	// configuration of the grid
+    // construct 3 points that will be translated 
+    var points = [];
+
+    for(var i=0,len=N;i<len;i++){
+        for(var j=0;j<len;j++){
+            if( (i== len-1-2 && j==2 ) || (i== parseInt(len-1-len/4) && j==2 ) || (i== len-1-2 && j== parseInt(len/5) ) ){
+                points.push(0xff0000,point((j-parseInt((N-1)/2.0)),(i-parseInt((N-1)/2.0)) ),"");
+            }else{
+                points.push(0xdddddd,point((j-parseInt((N-1)/2.0)),(i-parseInt((N-1)/2.0)) ),"");
+            }
+        }
+    }
+    
+
+
+
+
+
+
+    // construction of the perpendicular lines
+    //var pointsOfPdsLine = [];
+  //  for(var i=0;i<points.length;i+=2){
+        // here 
+
+//        if( pointInKDiscretePerpendicularLine(points[i]<<1e1,points[i]<<1e2,xo,yo,a,b,0) ){
+    //        pointsOfPdsLine.push(points[i],"");
+    //    }
+    //}
+
+    // determine the intersection point between the two lines
+    // two cases
+    // another question is : what is X(y) defined in the paper
+
+    // classify the points with respect to the line, i.e. 
+
+
+    //  
+
+    // 
+
+    // classification of the points with respect to the position of the point
+    
+
+    // 
+
+
+    // transform the points such that it is in the range [-2,2]^2
+    var newGridPoints = projectPointsIntoGrid(points);
+    //var DRSL = projectPointsIntoGrid(pointsOfDrsLine);
+
+    //var PDSL = projectPointsIntoGrid(pointsOfPdsLine);
+
+
+    // Define the line y=x-0.5
+    //var L=line(-2,1,0.5)
+    
+    // Or by joining two points. We define M as a function so it will update when C or A are dragged.
+    //var M=()=>C&A;
+
+
+    //try the animation of the transformations
+    //var dirVectorLine = ;
+    var angled = ()=>(performance.now()/1000);
+      var tr = ()=>translate( 2*Math.sin(performance.now()/1000)*1e2 );
+      //ro = ()=>rotate(p1,performance.now()/1000)*tr,
+      var p1 = ()=>tr*point( xo, yo )*(~tr) 
+      //p2 = ()=>ro>>>(point( 0.75, 0 ));
+
+
+
+      var Tp = (vector)=>translate( vector );
+
+
+    
+    // Points can also be found by intersecting two lines. We similarly define D as a function for interactive updates. 
+    //var D=()=>L^M;
+    
+    // We now use the graph function to create an SVG object that visualises our algebraic elements. The graph function accepts
+    // an array of items that it will render in order. It can render points, lines, labels, colors, line segments and polygons.
+
+    // for(var i=0,len=N;i<len;i++){
+    document.body.appendChild(this.graph( () => {
+        //var time=performance.now()/4000; 
+            var theta = 10;//*Math.sin(time);
+            var thetaInRad = theta*Math.PI/180; // theta*
+            var a = Math.sin(thetaInRad); 
+            var b = Math.cos(thetaInRad);
+            var xo = 0;
+            var yo = 0;
+
+
+
+        // same thing using completely geometric algebra
+            var pointsOfDrsLineGA = [];
+            var perpendicularVectors = [];
+            var reflexionPoints = [];
+            var theLine = discreteLineGA(xo,yo,a,b);
+
+
+            var reflectedPoints = []
+            for(var i=1;i<points.length;i+=3){
+                var x = points[i][1];
+                var y = points[i][2];
+
+                var k = Math.floor((x-xo) + (a/b)*(y-yo) + 0.5);
+
+                var X = (y)=> Math.ceil( (2*k-1)/2 + xo - (a/b)*(y-yo) )
+
+                var x1 = X(Math.ceil(a*b*k + yo))
+                var y1 = Math.ceil(a*b*k + yo)
+                var x2 = X(Math.floor(a*b*k + yo))
+                var y2 = Math.floor(a*b*k + yo)
+
+
+                var innerLineX1 = (a*(x1-xo))-(b*(y1-yo));
+                var innerLineX2 = (a*(x2-xo))-(b*(y2-yo));
+
+                if(  innerLineX1 >= -b/2 &&  innerLineX1 < b/2){
+                    var xp = X(2*y1-y);
+                    var yp = 2*y1 - y;
+                    reflectedPoints.push(points[i-1],point(xp,yp),points[i+1])
+                }
+                else if(innerLineX2 >= -b/2 &&  innerLineX2 < b/2){
+                    var xp = X(2*y2-y);
+                    var yp = 2*y2 - y;
+                    reflectedPoints.push(points[i-1],point(xp,yp),points[i+1])
+                }else{
+                    var xp = X(y1+y2-y);
+                    var yp = y1+y2-y;
+                    reflectedPoints.push(points[i-1],point(xp,yp),points[i+1])
+                }
+
+            }
+
+            var backPoints = []
+            for(var i=1;i<reflectedPoints.length;i+=3){
+                var x = reflectedPoints[i][1];
+                var y = reflectedPoints[i][2];
+
+                var k = Math.floor((x-xo) + (a/b)*(y-yo) + 0.5);
+
+                var X = (y)=> Math.ceil( (2*k-1)/2 + xo - (a/b)*(y-yo) )
+
+                var x1 = X(Math.ceil(a*b*k + yo))
+                var y1 = Math.ceil(a*b*k + yo)
+                var x2 = X(Math.floor(a*b*k + yo))
+                var y2 = Math.floor(a*b*k + yo)
+
+
+                var innerLineX1 = a*(x1-xo)-b*(y1-yo);
+                var innerLineX2 = a*(x2-xo)-b*(y2-yo);
+                if(  innerLineX1 >= -b/2 &&  innerLineX1 < b/2){
+                    var xp = X(2*y1-y);
+                    var yp = 2*y1 - y;
+                    backPoints.push(reflectedPoints[i-1],point(xp,yp),reflectedPoints[i+1])
+                }
+                else if(innerLineX2 >= -b/2 &&  innerLineX2 < b/2){
+                    var xp = X(2*y2-y);
+                    var yp = 2*y2 - y;
+                    backPoints.push(reflectedPoints[i-1],point(xp,yp),reflectedPoints[i+1])
+                }else{
+                    var xp = X(y1+y2-y);
+                    var yp = y1+y2-y;
+                    backPoints.push(reflectedPoints[i-1],point(xp,yp),reflectedPoints[i+1])
+                }
+
+            }
+
+
+
+            for(var i=1;i<points.length;i+=3){
+                // here 
+                if( pointInDiscreteLineGA(points[i],theLine,a,b) ){
+                    pointsOfDrsLineGA.push(0x0000ff,points[i],"");
+            //         // compute the rejection of the point into the line
+            //         var orthoVector = (points[i]^theLine*(theLine^-1));
+            //         // and normalize it
+            //         orthoVector = orthoVector/Math.sqrt(orthoVector<<orthoVector);
+            //         //console.log("ortho vector ="+orthoVector);
+
+            //         var translatedPointWrong = (Tp(orthoVector) >>> points[i]);
+            //         var translatedPoint = translatedPointWrong//point(translatedPointWrong[1]/translatedPointWrong[3],translatedPointWrong[2]/translatedPointWrong[3]);
+
+            //         //console.log("translated point = "+translatedPoint)
+
+            //         perpendicularVectors.push(0x00dd00,translatedPoint,"");
+
+            //         // again compute the discrete line whose
+                    
+
+                }
+            }
+
+
+            // var discretePerLinesGA = [];
+            // var indexNearZero = 1;
+            // for(var i=1;i<pointsOfDrsLineGA.length;i+=3){
+            //     var obtainedLine = lineFromPoints(pointsOfDrsLineGA[i],perpendicularVectors[i]);
+            //     if(Math.abs(pointsOfDrsLineGA[i][1]) < Math.abs(pointsOfDrsLineGA[indexNearZero][1]) ){
+            //         indexNearZero=i;
+            //     }
+            //     discretePerLinesGA.push(0x00dd00, obtainedLine, "");
+            // }
+
+
+            // var pointsOfPDSLineGADis = [];
+
+
+            // for(var i=1;i<points.length;i+=3){
+            //     // here 
+            //     if( pointInDiscreteLineGA(points[i],discretePerLinesGA[indexNearZero],a,b) ){
+            //         pointsOfPDSLineGADis.push(0xff0000,points[i],"");
+            //     }
+            // }
+
+
+
+            // must be in the same line and compute the reflexion of the considered point with respect to the line
+            // first choose a point in the
+            // var apointInPdsl = []; 
+            // for(var j=1;j<pointsOfPDSLineGADis.length;j++){}
+            //     apointInPdsl.push(0x00ff00,pointsOfPDSLineGADis[j],"");
+            // }
+
+            // var reflectedPoints = reflectPoints(pointsOfPDSLineGADis,theLine)
+
+            // find the closest point in the grid 
+
+
+
+            // for()
+            
+            // reflect this point
+            // var reflectedPoint = [0xd000ff,-theLine*apointInPdsl[1]*(theLine^(-1)),""];
+            
+
+
+
+            // back project to the initial value
+            var DRSL_GA = projectPointsIntoGrid(pointsOfDrsLineGA);
+            // var PDSL_GA = projectPointsIntoGrid(pointsOfPDSLineGADis);
+            
+            //var pointsToBeReflected = projectPointsIntoGrid(apointInPdsl)
+            var pointsReflected = projectPointsIntoGrid(reflectedPoints)
+            var pointsBackReflected = projectPointsIntoGrid(backPoints)
+
+
+                
+
+
+
+            // from points of drsl and points from perpendicular vectors, compute the lines orthogonal to the drsl
+
+            return [pointsBackReflected]}, {conformal:true,animate:true,grid:false})).style.backgroundColor='transparent';
+
+            // test: take each point on the line and compute the orthogonal unit vector
+            //return [point(DRSL_GA[1][1],DRSL_GA[1][2]),point(PDSL_GA[1][1],PDSL_GA[1][2]), lineFromPoints(DRSL_GA[1],PDSL_GA[1])];}, {conformal:true,animate:true,grid:false})).style.backgroundColor='transparent';
+//...newGridPoints,...DRSL_GA,...PDSL_GA, 
+    
+});
+</SCRIPT></BODY>
