@@ -25,11 +25,11 @@
 
 
 
-/* classe css de la page*/
+/* classe css de la page  solid black*/
 #res_script{
-  border:0px solid black;
-  width:99%;
-        /* font-size:1.2em; */
+  border:0; 
+/*  width:99%;
+*/        /* font-size:1.2em; */
   text-align:left;
   color:black;
   background-color:white;
