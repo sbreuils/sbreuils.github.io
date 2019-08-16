@@ -50,6 +50,9 @@
 <loc>http://localhost:4000/posts/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/_pages/untitled/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/page2/</loc>
 </url>
 <url>
@@ -81,7 +84,11 @@
 <lastmod>2019-08-01T10:14:18+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/scripts/test.html</loc>
+<lastmod>2019-08-06T16:47:47+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/scripts/testPoints.html</loc>
-<lastmod>2019-08-01T12:25:30+09:00</lastmod>
+<lastmod>2019-08-07T08:26:13+09:00</lastmod>
 </url>
 </urlset>
