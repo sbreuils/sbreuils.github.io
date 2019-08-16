@@ -6,11 +6,6 @@ HTML, BODY, A, TABLE, TR, TD, FORM, INPUT, SELECT, TEXTAREA, DIV, P, SPAN, H1, H
 }
 
 BODY {
-  margin: 0px;
-  border: 0px;
-  padding: 0px;
-  color: black;
-  font-size: 12px;
 }
 
 /* classe css de la page*/
