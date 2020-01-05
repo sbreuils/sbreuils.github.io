@@ -1,1 +1,0 @@
-<IFRAME width="505" height="500" src="https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=Stephane+Breuils&CB_auteur=oui&CB_titre=oui&CB_article=oui&CB_DOI=oui&langue=Anglais&tri_exp=typdoc&tri_exp2=annee_publi&tri_exp3=titre&ordre_aff=TA&CB_rubriqueDiv=oui&Fen=Aff&css=../css/VisuOmbreVignettes.css" FRAMEBORDER="0" scrolling="no" ></IFRAME>
