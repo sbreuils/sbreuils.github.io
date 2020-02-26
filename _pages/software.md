@@ -3,7 +3,7 @@ title: "Software"
 permalink: /software/
 author_profile: true
 header:
-    image: "/images/fort point.png"
+    image: "/images/discreteGAAccueiWeb.png"
 ---
 
 
@@ -26,7 +26,6 @@ All the the following algebras have their own plugin and code that you can use.
 | Initials | CCGA | QCGA | DCGA | DPGA | CGA | STA | PGA |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | handle (short overview )       | cubic curves | quadric surfaces intersection and from control points | quadric surfaces with implicit equation | quadric surfaces and projective transformation  | flats and rounds | Space-time Algebra | Projective geometry |     
-| Reference         | [1] | [2] | [3] | [4] | [5] | [6] | [7] |
 
 
 ## Want to test

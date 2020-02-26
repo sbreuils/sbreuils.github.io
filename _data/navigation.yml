@@ -1,7 +1,5 @@
 # main links
 main:
-  - title: "Publications"
-    url: /publications/
   - title: "Teachings"
     url: /teachings/
   - title: "Software"

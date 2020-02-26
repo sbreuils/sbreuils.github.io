@@ -2,7 +2,7 @@
 title: "Publications"
 permalink: /publications/
 header:
-    image: "/images/fort point.png"
+    image: "/images/discreteGAAccueiWeb.png"
 ---
 
 Here is a list of my publications.  

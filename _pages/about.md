@@ -2,7 +2,7 @@
 title: "About"
 permalink: "index.html"
 header:
-    image: "/images/fort point.png"
+    image: "/images/discreteGAAccueiWeb.png"
 ---
 
 I work as a postdoctoral fellow at the National Institute of Informatics, Tokyo in the computer science department under the supervision of Prof. [Akihiro Sugimoto](http://research.nii.ac.jp/~sugimoto/). My PhD. defense held the 17th of December 2018. My PhD. advisors were Vincent Nozick and Laurent Fuchs. The last version of my PhD. manuscript can be found here. My research concerns Geometric Algebras (Clifford Algebras) implementation with applications for curves and surfaces representation and manipulation.  
