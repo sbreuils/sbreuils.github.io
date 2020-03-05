@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Stephane Breuils"
   avatar           : "/images/bio-photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Postdoctoral student working under the supervision of Akihiro Sugimoto"
+  bio              : "Postdoctoral student working under the supervision of Professor Akihiro Sugimoto"
   location         : "Tokyo, Japan"
   email            : "breuils@nii.ac.jp"
   github           : "sbreuils"
