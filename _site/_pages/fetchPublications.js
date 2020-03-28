@@ -105,7 +105,7 @@ function appendData( data )
 
 				var div_title = document.createElement("div");
 				div_title.className = "article-title";
-				div_title.innerHTML = delete_double_quotes( JSON.stringify( data.response.docs[i].title_s[0] ) );
+				div_title.innerHTML =  "<b><i>" + delete_double_quotes( JSON.stringify( data.response.docs[i].title_s[0] ) ) + "</i></b>";
 				div_box.appendChild( div_title );
 
 				var div_authors = document.createElement("div");
