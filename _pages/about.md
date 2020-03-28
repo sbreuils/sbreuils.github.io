@@ -1,8 +1,6 @@
 ---
 title: "About"
 permalink: "index.html"
-header:
-    image: "/images/discreteGAAccueiWeb.png"
 ---
 
 I work as a postdoctoral fellow at the National Institute of Informatics, Tokyo in the computer science department under the supervision of Prof. [Akihiro Sugimoto](http://research.nii.ac.jp/~sugimoto/). My PhD. defense held the 17th of December 2018. My PhD. advisors were Vincent Nozick and Laurent Fuchs. The last version of my PhD. manuscript can be found here. My research concerns Geometric Algebras (Clifford Algebras) implementation with applications for curves and surfaces representation and manipulation.  
@@ -14,6 +12,7 @@ Here is a list of ongoing collaborations
 - [Akihiro Sugimoto](http://research.nii.ac.jp/~sugimoto/) (NII)
 - [Vincent Nozick](http://www-igm.univ-mlv.fr/~vnozick/?lang=en) (LIGM)
 - [Yukiko Kenmochi](http://igm.univ-mlv.fr/~kenmochi/index.php?section=home&subsection=&language=en) (CNRS)
+- [Diego Thomas](https://sites.google.com/site/diegotthomas/home) (Kyūshū University)
 - [Werner Benger](https://www.cct.lsu.edu/~werner/) (CCT)
 - [Dietmar Hildenbrand](http://www.gaalop.de/dhilden/) (TU Darmstadt)
 - [Eckhard Hitzer](https://gaupdate.wordpress.com/about/) (ICU Tokyo)

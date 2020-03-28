@@ -2,8 +2,6 @@
 title: "Teachings"
 permalink: /teachings/
 author_profile: true
-header:
-    image: "/images/discreteGAAccueiWeb.png"
 ---
 My current total of hours of teachings is **345h**
 
