@@ -10,9 +10,9 @@ This page aims at listing todo for the projects I am doing.
 
 ### Todo before the 13th of April
 
+- X and Y can be removed and replaced by $\mathcal{Z}^2$ and $\mathcal{R}^2$
 - Definition of scaled cell (Ce1(0))
 - Define the inner product and replace
-- X and Y can be removed and replaced by $\mathcal{Z}^2$ and $\mathcal{R}^2$
 - Real reflection needs to be redefined in section 2
 - rename e1u (be seen as a bivector)
 - section 3.2 remove subsection
