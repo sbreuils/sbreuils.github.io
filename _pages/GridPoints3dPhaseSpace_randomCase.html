@@ -4,6 +4,11 @@
 <BODY><SCRIPT>
 // Create a Clifford Algebra with 4,1 metric for 3D CGA.
 Algebra(4,1,()=>{
+
+
+
+
+
 	// We start by defining a null basis in which we will work.
   var ni = 1e4+1e5, no = .5e5-.5e4;
 
@@ -34,9 +39,9 @@ Algebra(4,1,()=>{
 // normal vector has coefficients u,v,w 
 // becareful, the 3 coefficients has to describe the 
 
-	var u = -3; // has to be negative
+	var u = -Math.sqrt(3); // has to be negative
 	var v = -Math.sqrt(2); // has to be negative
-	var w = -9;  // has to be positive
+	var w = 9;  // has to be positive
 	
 
 	var p0 = pt(0*1e1 + 0*1e2 + 0*1e3);
@@ -64,7 +69,7 @@ Algebra(4,1,()=>{
 
 
 	// 
-	var nbPoints = 5;
+	var nbPoints = 100000;
 	var multiplesVec = []; 
 	var multiplesVecInUnitCube = []; 
 	var multiplesVecInUnitSphere = []; 
@@ -93,30 +98,17 @@ Algebra(4,1,()=>{
 
 
 
+
 		multiplesVecInUnitCube.push(differenceGroupVec);
 
 		multiplesVecInUnitSphere.push([currentUnitDifferenceGroupVec<< 1e1, currentUnitDifferenceGroupVec<< 1e2, currentUnitDifferenceGroupVec<< 1e3]);
 
 
-		// sort the array of vectors
-		// multiplesVecInUnitSphere.sort( function(a,b)){
-		// 	if(a[2] < b[2] ){
-		// 		return -1;
-		// 	}
-		// 	if(a[1] < b[1]){
-		// 		return -1;
-		// 	}
 
-		// 	if(a[0] < b[0]){
-		// 		return -1;
-		// 	}
 
-		// 	if(a[0] == b[0] && a[1]==b[1] && a[2]==b[2])
-		// 		return 0;
 
-		// 	return 1;
+		// construct the map with unique values and check the number of values.
 
-		// }		
 		// try to find 
 
 
@@ -147,18 +139,61 @@ Algebra(4,1,()=>{
     // }
 
 
+/////////////////////////// FUNCTION TO COMPUTE THE MAP
+    var a = [], b = [], prev;
+    console.log("array multiples = ",multiplesVecInUnitSphere);
+
+    // for(var i =0; i<multiplesVecInUnitSphere ; i++)
+
+
+		
+	    console.log("array multiples = ",multiplesVecInUnitSphere);
+	// multiplesVecInUnitSphere.sort();
+
+    // for ( var i = 0; i < multiplesVecInUnitSphere.length; i++ ) {
+    //     if ( multiplesVecInUnitSphere[i][0] !== prev[0] && multiplesVecInUnitSphere[i][1] !== prev[1] && multiplesVecInUnitSphere[i][2] !== prev[2]){
+    //         a.push(multiplesVecInUnitSphere[i]);
+    //         b.push(1);
+    //     } else {
+    //         b[b.length-1]++;
+    //     }
+    //     prev = arr[i];
+    // }
+
+
+
+
+
+
+
+
+//////////////////////////
+
+
+	// [sortedmultiplesVecInUnitSphere, occurrencesMultiplesVec] = [a,b];// getMapsAndOccurrencesFromArrayOfVectors(multiplesVecInUnitSphere);
+
+	// var sortedMultiplesPointsUnitSphere = []
+	// for (var i = 0; i < sortedmultiplesVecInUnitSphere.length; i++) {
+	// 	sortedMultiplesPointsUnitSphere.push(pt(sortedmultiplesVecInUnitSphere[i][0]*1e1 + sortedmultiplesVecInUnitSphere[i][0]*1e2 + sortedmultiplesVecInUnitSphere[i][0]*1e3 ));
+	// }
+
+	var sortedMultiplesPointsUnitSphere = []
+	for (var i = 0; i < multiplesVecInUnitSphere.length; i++) {
+		sortedMultiplesPointsUnitSphere.push(pt(multiplesVecInUnitSphere[i][0][0]*1e1 + multiplesVecInUnitSphere[i][1][0]*1e2 + multiplesVecInUnitSphere[i][2][0]*1e3 ));
+	}
+
 
 /*
         ****************************** transform into discrete points ******************************
 */
-    for(var i =0 ; i < originalContinuousPoints.length ; i++){
-            var x = Math.round((((originalContinuousPoints[i] << (1e1) )-infGrid)/(supGrid-infGrid))*lengthGrid)*1e1;
-            var y = Math.round((((originalContinuousPoints[i] << (1e2) )-infGrid)/(supGrid-infGrid))*lengthGrid)*1e2;
-            var z = Math.round((((originalContinuousPoints[i] << (1e3) )-infGrid)/(supGrid-infGrid))*lengthGrid)*1e3;
-            //console.log("DISC x=",x,"; y=",y,"; z=",z);
-            originalDiscretePoints.push(pt(x+y+z));
-			// console.log(originalDiscretePoints[originalDiscretePoints.length - 1]);
-    }
+   //  for(var i =0 ; i < originalContinuousPoints.length ; i++){
+   //          var x = Math.round((((originalContinuousPoints[i] << (1e1) )-infGrid)/(supGrid-infGrid))*lengthGrid)*1e1;
+   //          var y = Math.round((((originalContinuousPoints[i] << (1e2) )-infGrid)/(supGrid-infGrid))*lengthGrid)*1e2;
+   //          var z = Math.round((((originalContinuousPoints[i] << (1e3) )-infGrid)/(supGrid-infGrid))*lengthGrid)*1e3;
+   //          //console.log("DISC x=",x,"; y=",y,"; z=",z);
+   //          originalDiscretePoints.push(pt(x+y+z));
+			// // console.log(originalDiscretePoints[originalDiscretePoints.length - 1]);
+   //  }
 
 
 
@@ -168,7 +203,7 @@ Algebra(4,1,()=>{
 //      0x00FF0000, ...originalContinuousPoints,                  // lattice
       // 0x00FF0000, p1,  // normal vector to the plane of reflection
       // 0xE0008800, plane,      // 
-      0xE0008800, ...multiplesVecInUnitSphere,
+      0xE0008800, ...sortedMultiplesPointsUnitSphere,
   ],{animate:true,conformal:true,gl:true,grid:false,width:512,height:512}));
 });
 </SCRIPT></BODY>
