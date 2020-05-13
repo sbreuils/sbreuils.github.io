@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Grid and reflection</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+		<script>
+
+			// Our Javascript will go here.
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+			var camZPos = 20;
+			camera.position.z = camZPos;
+
+
+			function randomReflection0_45(){
+				// return a random normal vector of reflection the slope of the line is <= 1
+				var limitY = 10000.0;
+				var yrand = limitY*Math.random();//1.85;//limitY*Math.random(); // xrand in [0,1[
+				var xrand = (limitY*Math.random())%yrand;//(limitY*Math.random())%yrand; // xrand in [0,1[
+
+
+				var vecX = -(xrand);// to be normalized
+				var vecY = (yrand);
+				var vecZ = 0.0;
+				var vecW = 0.0;
+
+				var normNormalVec = Math.sqrt(vecX*vecX + vecY*vecY + vecZ*vecZ + vecW*vecW);
+
+				console.log("norm of vector in random reflect= "+(Math.sqrt(vecX*vecX + vecY*vecY + vecZ*vecZ + vecW*vecW)));
+				// normalize the normal vector
+				vecX = vecX/normNormalVec;
+				vecY = vecY/normNormalVec;
+				vecZ = vecZ/normNormalVec;
+				vecW = vecW/normNormalVec;
+
+				return [vecX,vecY,vecZ,vecW]
+			}
+
+
+			function randomReflectionToBijectiveOne(normalVector){
+				// apply algorithm to have a bijective digital reflection
+				var unitDirectionVector = [normalVector[1],-normalVector[0],normalVector[2],normalVector[3]];
+				// console.log("randomReflectionToBijectiveOne x of unit direction vector = "+unitDirectionVector[0]);
+				// console.log("randomReflectionToBijectiveOne y of unit direction vector = "+unitDirectionVector[1]);
+				// console.log("randomReflectionToBijectiveOne z of unit direction vector = "+unitDirectionVector[2]);
+				// console.log("randomReflectionToBijectiveOne w of unit direction vector = "+unitDirectionVector[3]);
+
+
+				var k1 = Math.round(unitDirectionVector[1]/(unitDirectionVector[0]-unitDirectionVector[1]));
+				console.log("k1 = "+k1);
+				
+				// compute the obtained bijective unit vector
+				var dirVectorbijective1 = [k1+1,k1,unitDirectionVector[2],unitDirectionVector[3]];
+				var normK1 = Math.sqrt(dirVectorbijective1[0]*dirVectorbijective1[0]+dirVectorbijective1[1]*dirVectorbijective1[1]+dirVectorbijective1[2]*dirVectorbijective1[2]+dirVectorbijective1[3]*dirVectorbijective1[3]);
+				dirVectorbijective1 = [dirVectorbijective1[0]/normK1,dirVectorbijective1[1]/normK1,dirVectorbijective1[2]/normK1,dirVectorbijective1[3]/normK1];
+				// console.log("dirVectorbijective1 x of unit direction vector = "+dirVectorbijective1[0]);
+				// console.log("dirVectorbijective1 y of unit direction vector = "+dirVectorbijective1[1]);
+				// console.log("dirVectorbijective1 z of unit direction vector = "+dirVectorbijective1[2]);
+				// console.log("dirVectorbijective1 w of unit direction vector = "+dirVectorbijective1[3]);
+
+
+				var k2 = Math.round((unitDirectionVector[0]-unitDirectionVector[1])/(2*unitDirectionVector[1]));
+				console.log("k2 = "+k2);
+
+				var dirVectorbijective2 = [(Math.sqrt(2)/2)*(2*k2+1),(Math.sqrt(2)/2),unitDirectionVector[2],unitDirectionVector[3]];
+				var normK2 = Math.sqrt(dirVectorbijective2[0]*dirVectorbijective2[0]+dirVectorbijective2[1]*dirVectorbijective2[1]+dirVectorbijective2[2]*dirVectorbijective2[2]+dirVectorbijective2[3]*dirVectorbijective2[3]);
+				dirVectorbijective2 = [dirVectorbijective2[0]/normK2,dirVectorbijective2[1]/normK2,dirVectorbijective2[2]/normK2,dirVectorbijective2[3]/normK2];
+				// console.log("dirVectorbijective2 x of unit direction vector = "+dirVectorbijective2[0]);
+				// console.log("dirVectorbijective2 y of unit direction vector = "+dirVectorbijective2[1]);
+				// console.log("dirVectorbijective2 z of unit direction vector = "+dirVectorbijective2[2]);
+				// console.log("dirVectorbijective2 w of unit direction vector = "+dirVectorbijective2[3]);
+
+
+				// compute the minimum angle to find which of k1 and k2 is the nearer from the unitDirection vector
+				var angleK1_u = Math.abs(Math.acos(dirVectorbijective1[0]*unitDirectionVector[0] + dirVectorbijective1[1]*unitDirectionVector[1] + dirVectorbijective1[2]*unitDirectionVector[2] + dirVectorbijective1[3]*unitDirectionVector[3]));
+				// console.log("anglek1 = "+angleK1_u);
+				var angleK2_u = Math.abs(Math.acos(dirVectorbijective2[0]*unitDirectionVector[0] + dirVectorbijective2[1]*unitDirectionVector[1] + dirVectorbijective2[2]*unitDirectionVector[2] + dirVectorbijective2[3]*unitDirectionVector[3]));
+				// console.log("anglek2 = "+angleK2_u);
+
+				// return the min
+				var resultingNormalBijectiveVector;
+				if(angleK1_u<= angleK2_u){
+					resultingNormalBijectiveVector = [-dirVectorbijective1[1], dirVectorbijective1[0], dirVectorbijective1[2], dirVectorbijective1[3]];
+					console.log("k1 wins!");
+				}
+				else{
+					resultingNormalBijectiveVector = [-dirVectorbijective2[1], dirVectorbijective2[0], dirVectorbijective2[2], dirVectorbijective2[3]];
+					console.log("k2 wins!");
+				}
+				return resultingNormalBijectiveVector;
+
+			}
+
+
+			function createSetOfRandomReflectionsIn0_45(N){
+				var setOfRandomNormalVectors=[];
+
+				for (var i = 0; i < N; i++) {
+					setOfRandomNormalVectors.push(randomReflection0_45());	
+				}
+				return setOfRandomNormalVectors;
+				
+			}
+
+
+
+
+
+
+			function lineFromNormalvector(unitNormalVector){
+
+				var points = [];
+				var XminScene = - (camZPos+5);
+				var XmaxScene =  (camZPos+5);
+				points.push( new THREE.Vector3( XminScene, (-unitNormalVector[2]*unitNormalVector[2] - (unitNormalVector[0]*XminScene))/unitNormalVector[1], unitNormalVector[2] ) );
+				points.push( new THREE.Vector3( 0.0, 0.0, unitNormalVector[2] ) );
+				points.push( new THREE.Vector3( XmaxScene, (-unitNormalVector[2]*unitNormalVector[2] - (unitNormalVector[0]*XmaxScene))/unitNormalVector[1], unitNormalVector[2] ) );
+
+				return points;
+				var geometryLine = new THREE.BufferGeometry().setFromPoints( points );
+
+				return new THREE.Line( geometryLine, material )
+			}
+
+
+			// Rounding operation
+			// loop over all the points and round
+			function discretizeGeometry(geometryy){
+				for (var i = 0; i < geometryy.vertices.length; i++) {
+					geometryy.vertices[i].x = Math.round(geometryy.vertices[i].x);
+					geometryy.vertices[i].y = Math.round(geometryy.vertices[i].y);
+					geometryy.vertices[i].z = Math.round(geometryy.vertices[i].z);
+				}
+			}
+
+
+
+
+
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight ); // size of the window with animation
+			renderer.setClearColor( 0xffffff );
+
+			// var geometry = new THREE.BoxGeometry(); // the scene, vertices and faces and edges
+			// var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } ); // mesh material
+			// var cube = new THREE.Mesh(geometry, material); // define the mesh 
+			// scene.add( cube ); // added by default at position (0,0,0) so we have to move the camera
+
+			// move the camera
+
+
+
+
+			/////////////// ADD SOME codes
+
+			console.log("Here is the grid");
+ 
+			// 省略
+			// Plane
+			// var geometry = new THREE.PlaneGeometry(30, 30,1,3);
+			// var material = new THREE.MeshBasicMaterial({color: 0xAAAAAA});
+			// var plane = new THREE.Mesh(geometry, material);
+			// plane.position.set(0, -10, -15);
+			// plane.rotation.set(-90 * Math.PI / 180, 0, -45 * Math.PI / 180);
+			// scene.add(plane);
+			 
+			// Particles
+			var geometryLine = new THREE.BufferGeometry();
+
+			var material = new THREE.PointsMaterial({color: 0xffffff, size: 0.2, vertexColors: true});
+			var materialLine = new THREE.LineBasicMaterial({color: 0x0000ff});
+
+			var lenGrid = 10.0;
+
+			////////////////////////////////// FINISH CREATING THE GRID OF POINTS
+
+
+			// var points = new THREE.Points(geometry, material);
+			// scene.add(points);
+			// console.log("point before reflection x= "+geometry.vertices[212].x); 
+			// console.log("point before reflection y= "+geometry.vertices[212].y); 
+			// console.log("point before reflection z= "+geometry.vertices[212].z); 
+
+			// 省略
+			// add a line to the
+			var N = 20;
+			var setOfUnitNormVec = createSetOfRandomReflectionsIn0_45(N);
+			// var unitNormVec = randomReflection0_45();
+
+
+			var indexReflection = 0;
+			var last = 0; // timestamp of the last animate() call
+			// render the scene
+			function animate(now) {
+				console.log("index = "+indexReflection);
+
+				if(!last || now - last >= 5*1000) {
+					// geometry.dispose();
+					while(scene.children.length > 0){ 
+					    scene.remove(scene.children[0]); 
+					}
+						// TRANSFORM POINTS
+						//////////////////////////////////  CREATE THE GRID OF POINTS
+						var geometry = new THREE.Geometry();
+
+						var xminDigitSquare = -6;
+						var xmaxDigitSquare = -3;
+						var yminDigitSquare = 3;
+						var ymaxDigitSquare = 6;
+
+						for(var x=-lenGrid; x<lenGrid; x++){
+							for(var y=-lenGrid; y<lenGrid; y++){
+								var particle = new THREE.Vector3(x, y, 0.0);
+								geometry.vertices.push(particle);
+
+								// construct also a blue square
+								if(x>=xminDigitSquare && x<=xmaxDigitSquare && y>=yminDigitSquare && y <=ymaxDigitSquare ){
+									geometry.colors.push(new THREE.Color(0x0000ff));
+								}
+								else{
+									geometry.colors.push(new THREE.Color(0xff0000));
+								}
+								// geometry.colors.push(new THREE.Color(Math.random() * 0x00ffff));
+							}
+						}
+
+						var unitNormVec = (setOfUnitNormVec[indexReflection]);//randomReflectionToBijectiveOne(setOfUnitNormVec[indexReflection]);
+
+						geometryLine.setFromPoints(lineFromNormalvector(unitNormVec));
+						var lineOfReflect = new THREE.Line( geometryLine, material )
+						scene.add(lineOfReflect);
+						var ReflectionTransformation = new THREE.Matrix4();
+						ReflectionTransformation.elements = [ 1-(2*unitNormVec[0]*unitNormVec[0]), -2*unitNormVec[0]*unitNormVec[1], -2*unitNormVec[0]*unitNormVec[2], -2*unitNormVec[0]*unitNormVec[3],
+												              -2*unitNormVec[0]*unitNormVec[1], 1-2*(unitNormVec[1]*unitNormVec[1]), -2*unitNormVec[1]*unitNormVec[2], -2*unitNormVec[1]*unitNormVec[3],
+												              -2*unitNormVec[0]*unitNormVec[2], -2*unitNormVec[1]*unitNormVec[2], 1-2*(unitNormVec[2]*unitNormVec[2]), -2*unitNormVec[2]*unitNormVec[3],
+												              0.0, 0.0, 0.0, 1.0 ];
+
+						geometry.applyMatrix4(ReflectionTransformation);
+						discretizeGeometry(geometry);
+						var pointsReflectedRounded = new THREE.Points(geometry, material);
+						scene.add(pointsReflectedRounded);
+
+						indexReflection = (indexReflection+1)%N;				
+				        last = now;
+				}
+				
+				// moveCube(0.01);
+				// requestAnimationFrame( animate ); // loop
+				renderer.render( scene, camera );
+			}
+		    setInterval(function () {
+            	requestAnimationFrame(animate);
+        	}, 10000); // x*1000 ; x in seconds
+
+
+
+			animate();
+
+			document.body.appendChild( renderer.domElement );
+		</script>
+	</body>
+</html>
