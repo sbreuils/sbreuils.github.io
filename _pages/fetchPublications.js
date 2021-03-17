@@ -1,4 +1,4 @@
-fetch("https://api.archives-ouvertes.fr/search/cnrs/?omitHeader=true&wt=json&q=Stephane%20Breuils&sort=producedDate_tdate+desc&fq=collCode_s%3ACNRS&fq=NOT+status_i%3A111&fq={!tag%3Dtag0__docType_s}docType_s%3A(%22ART%22+OR+%22COMM%22+OR+%22OUV%22+OR+%22COUV%22+OR+%22DOUV%22+OR+%22REPORT%22+OR+%22THESE%22+OR+%22HDR%22+OR+%22LECTURE%22)&defType=edismax&rows=1000&fl=uri_s%2CdocType_s%2Ctitle_s%2CauthFullName_s%2CproducedDate_s%2CjournalTitle_s%2CjournalPublisher_s%2Cvolume_s%2Cnumber_s%2Cpage_s%2CbookTitle_s%2CconferenceTitle_s%2CconferenceStartDate_s&sort=producedDate_s%20desc")
+fetch("https://api.archives-ouvertes.fr/search/?omitHeader=true&wt=json&q=Breuils%20Stephane&sort=producedDate_tdate+desc")
 		.then(response => {
 				return response.json()
 		})
@@ -17,7 +17,6 @@ function delete_double_quotes( txt )
 
 function appendData( data )
 {
-		console.log("This is the beginning of the function my master");
 
 		var mainContainer = document.getElementById("sbreuils_papers");
 
