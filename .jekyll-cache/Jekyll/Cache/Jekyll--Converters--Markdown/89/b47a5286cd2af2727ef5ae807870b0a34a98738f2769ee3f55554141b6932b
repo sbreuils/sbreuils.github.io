@@ -1,0 +1,27 @@
+I"<p>This page aims at listing todo for the projects I am doing.</p>
+
+<h2 id="digital-geometry">Digital geometry</h2>
+
+<h3 id="todo-before-the-13th-of-april">Todo before the 13th of April</h3>
+
+<ul>
+  <li>X and Y can be removed and replaced by $\mathcal{Z}^2$ and $\mathcal{R}^2$</li>
+  <li>Definition of scaled cell (Ce1(0))</li>
+  <li>Define the inner product and replace</li>
+  <li>Real reflection needs to be redefined in section 2</li>
+  <li>rename e1u (be seen as a bivector)</li>
+  <li>section 3.2 remove subsection</li>
+  <li>Figure 4 to be made again</li>
+  <li>find two examples of angles that makes the digital reflection non-bijective (prop 4.4)</li>
+  <li>Continue Section 5</li>
+</ul>
+
+<h2 id="want-to-know-the-details">Want to know the details</h2>
+<p>Please send an email to either:</p>
+<ul>
+  <li><a href="http://research.nii.ac.jp/~sugimoto/">Akihiro Sugimoto</a></li>
+  <li><a href="http://igm.univ-mlv.fr/~kenmochi/">Yukiko Kenmochi</a></li>
+  <li><a href="http://sbreuils.github.io">Stephane Breuils</a></li>
+</ul>
+
+:ET

@@ -1,0 +1,51 @@
+I"i<h2 id="garamon">Garamon</h2>
+<p>stands for Geometric Algebra Recursive Monster. It is a C++ library generator synthesizing efficient C++ libraries implementing geometric algebras in both low and higher dimensions, with any arbitrary metric. The library generator is designed to produce easy to install, easy to use, effective and numerically stable libraries. The design of the libraries is based on a prefix tree data structure and a recursive scheme for high dimensions. You can find some of the tested algebras with references just below.</p>
+
+<h3 id="easy-to-use">Easy to use</h3>
+<p>Very intuitive way to compute and test Geometric Algebra. Here is an example of computation in the Conformal Geometric Algebra framework reproducing the computation of the horizon as seen by an observer in a view point P:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">P</span>  <span class="o">=</span> <span class="n">point</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">px</span><span class="p">,</span><span class="n">py</span><span class="p">,</span><span class="n">pz</span><span class="p">);</span> <span class="c1">// view point</span>
+<span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">M</span>  <span class="o">=</span> <span class="n">e0</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// center point of the earth</span>
+<span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">Sphere</span> <span class="o">=</span> <span class="n">M</span><span class="err">−</span><span class="mf">0.5</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span> <span class="n">einf</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span><span class="c1">// sphere representing Earth (center M, radius r)</span>
+<span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">K</span> <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="p">(</span><span class="n">P</span> <span class="o">|</span> <span class="n">Sphere</span><span class="p">)</span><span class="o">*</span><span class="n">einf</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span><span class="c1">// sphere around P</span>
+<span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">circle</span> <span class="o">=</span> <span class="n">Sphere</span> <span class="o">^</span> <span class="n">K</span><span class="p">;</span><span class="c1">// intersecting circle</span>
+</code></pre></div></div>
+
+<h3 id="tested-algebras-with-references">Tested algebras with references</h3>
+<p>All the the following algebras have their own plugin and code that you can use.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Initials</th>
+      <th style="text-align: center">CCGA</th>
+      <th style="text-align: center">QCGA</th>
+      <th style="text-align: center">DCGA</th>
+      <th style="text-align: center">DPGA</th>
+      <th style="text-align: center">CGA</th>
+      <th style="text-align: center">STA</th>
+      <th style="text-align: center">PGA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">handle (short overview )</td>
+      <td style="text-align: center">cubic curves</td>
+      <td style="text-align: center">quadric surfaces intersection and from control points</td>
+      <td style="text-align: center">quadric surfaces with implicit equation</td>
+      <td style="text-align: center">quadric surfaces and projective transformation</td>
+      <td style="text-align: center">flats and rounds</td>
+      <td style="text-align: center">Space-time Algebra</td>
+      <td style="text-align: center">Projective geometry</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="want-to-test">Want to test</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/vincentnozick/garamon.git
+</code></pre></div></div>
+
+<h2 id="want-to-know-the-details-of-the-implementation">Want to know the details of the implementation</h2>
+<p>If you want to know more about how we can use trees with Geometric Algebra or just the details of the implementation, please take a look at this <a href="https://hal.archives-ouvertes.fr/hal-02196173/document">paper</a>.</p>
+
+:ET

@@ -1,6 +1,6 @@
 ---
-title: "Software"
-permalink: /software/
+title: "Digital Geometry"
+permalink: /digitgeo/
 author_profile: true
 ---
 
