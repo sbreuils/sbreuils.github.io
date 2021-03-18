@@ -1,0 +1,28 @@
+I"K<h2 id="digital-geometry-and-geometric-algebra">Digital geometry and geometric algebra</h2>
+<p>This part of my research</p>
+
+<h3 id="easy-to-use">Easy to use</h3>
+<p>Very intuitive way to compute and test Geometric Algebra. Here is an example of computation in the Conformal Geometric Algebra framework reproducing the computation of the horizon as seen by an observer in a view point P:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">P</span>  <span class="o">=</span> <span class="n">point</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">px</span><span class="p">,</span><span class="n">py</span><span class="p">,</span><span class="n">pz</span><span class="p">);</span> <span class="c1">// view point</span>
+<span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">M</span>  <span class="o">=</span> <span class="n">e0</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// center point of the earth</span>
+<span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">Sphere</span> <span class="o">=</span> <span class="n">M</span><span class="err">−</span><span class="mf">0.5</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="o">*</span> <span class="n">einf</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span><span class="c1">// sphere representing Earth (center M, radius r)</span>
+<span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">K</span> <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="p">(</span><span class="n">P</span> <span class="o">|</span> <span class="n">Sphere</span><span class="p">)</span><span class="o">*</span><span class="n">einf</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span><span class="c1">// sphere around P</span>
+<span class="n">Mvec</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">circle</span> <span class="o">=</span> <span class="n">Sphere</span> <span class="o">^</span> <span class="n">K</span><span class="p">;</span><span class="c1">// intersecting circle</span>
+</code></pre></div></div>
+
+<h3 id="slides-of-the-beginning-of-the-project-in-french">Slides of the beginning of the project (in French)</h3>
+
+<iframe src="https://gacv.slides.com/sbreuils/gdr_dgmm2021_presentation_breuils/embed?style=dark&amp;byline=hidden" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+
+<h2 id="want-to-test">Want to test</h2>
+<p><a href="https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml"><img src="https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml/badge.svg" alt="build on linux" /></a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sbreuils/GADigitizedTransformations.git
+</code></pre></div></div>
+
+<h2 id="want-to-know-the-details-of-the-implementation">Want to know the details of the implementation</h2>
+<p>If you want to know more about how we can use trees with Geometric Algebra or just the details of the implementation, please take a look at this <a href="https://hal.archives-ouvertes.fr/hal-02196173/document">paper</a>.</p>
+
+<h2 id="want-to-cite">Want to cite</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sbreuils/GADigitizedTransformations.git
+</code></pre></div></div>
+:ET

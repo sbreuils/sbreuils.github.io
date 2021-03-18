@@ -1,0 +1,36 @@
+I"‘<h2 id="digital-geometry-and-geometric-algebra">Digital geometry and geometric algebra</h2>
+
+<p>This part of my research aims at exploring digital geometry with geometric algebra. In particular, we focus on the study of bijective digital transformations</p>
+
+<h3 id="slides-of-the-beginning-of-the-project-in-french">Slides of the beginning of the project (in French)</h3>
+
+<p>Here you can find the slides presented at the French conference <a href="https://gdmm2020.sciencesconf.org/">DGMM</a>. In short, this conference</p>
+<p align="center">
+<iframe src="https://gacv.slides.com/sbreuils/gdr_dgmm2021_presentation_breuils/embed?style=dark&amp;byline=hidden" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+</p>
+
+<h2 id="want-to-test">Want to test</h2>
+
+<p><a href="https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml"><img src="https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml/badge.svg" alt="build on linux" /></a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sbreuils/GADigitizedTransformations.git
+</code></pre></div></div>
+
+<h2 id="want-to-know-the-details-of-the-implementation">Want to know the details of the implementation</h2>
+
+<p>If you want to know more about how we can use trees with Geometric Algebra or just the details of the implementation, please take a look at this <a href="https://hal.archives-ouvertes.fr/hal-02196173/document">paper</a>.</p>
+
+<h2 id="want-to-cite">Want to cite</h2>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">@</span><span class="n">inproceedings</span><span class="p">{</span><span class="n">breuils</span><span class="o">:</span><span class="n">hal</span><span class="o">-</span><span class="mo">0316</span><span class="mi">8979</span><span class="p">,</span>
+  <span class="n">TITLE</span> <span class="o">=</span> <span class="p">,</span>
+  <span class="n">AUTHOR</span> <span class="o">=</span> <span class="p">{</span><span class="n">Breuils</span><span class="p">,</span> <span class="n">St</span><span class="p">{</span><span class="err">\'</span><span class="n">e</span><span class="p">}</span><span class="n">phane</span> <span class="n">and</span> <span class="n">Kenmochi</span><span class="p">,</span> <span class="n">Y</span><span class="p">.</span> <span class="n">and</span> <span class="n">Sugimoto</span><span class="p">,</span> <span class="n">Akihiro</span><span class="p">},</span>
+  <span class="n">URL</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="o">:</span><span class="c1">//hal.archives-ouvertes.fr/hal-03168979},</span>
+  <span class="n">BOOKTITLE</span> <span class="o">=</span> <span class="p">,</span>
+  <span class="n">ADDRESS</span> <span class="o">=</span> <span class="p">{</span><span class="n">Uppsala</span><span class="p">,</span> <span class="n">Sweden</span><span class="p">},</span>
+  <span class="n">YEAR</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2021</span><span class="p">},</span>
+  <span class="n">MONTH</span> <span class="o">=</span> <span class="n">May</span><span class="p">,</span>
+  <span class="n">PDF</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="o">:</span><span class="c1">//hal.archives-ouvertes.fr/hal-03168979/file/2021_DGMM_Stephane.pdf},</span>
+  <span class="n">HAL_ID</span> <span class="o">=</span> <span class="p">{</span><span class="n">hal</span><span class="o">-</span><span class="mo">0316</span><span class="mi">8979</span><span class="p">},</span>
+  <span class="n">HAL_VERSION</span> <span class="o">=</span> <span class="p">{</span><span class="n">v1</span><span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

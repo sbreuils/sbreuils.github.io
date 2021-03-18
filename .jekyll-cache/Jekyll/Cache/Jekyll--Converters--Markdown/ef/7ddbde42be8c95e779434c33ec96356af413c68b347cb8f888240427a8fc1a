@@ -1,0 +1,37 @@
+I"
+<h2 id="digital-geometry-and-geometric-algebra">Digital geometry and geometric algebra</h2>
+
+<p>This part of my research aims at exploring digital geometry with geometric algebra. In particular, we focus on the study of bijective digital transformations</p>
+
+<h3 id="slides-of-the-beginning-of-the-project-in-french">Slides of the beginning of the project (in French)</h3>
+
+<p>Here you can find the slides presented at</p>
+<p align="center">
+<iframe src="https://gacv.slides.com/sbreuils/gdr_dgmm2021_presentation_breuils/embed?style=dark&amp;byline=hidden" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+</p>
+
+<h2 id="want-to-test">Want to test</h2>
+
+<p><a href="https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml"><img src="https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml/badge.svg" alt="build on linux" /></a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sbreuils/GADigitizedTransformations.git
+</code></pre></div></div>
+
+<h2 id="want-to-know-the-details-of-the-implementation">Want to know the details of the implementation</h2>
+
+<p>If you want to know more about how we can use trees with Geometric Algebra or just the details of the implementation, please take a look at this <a href="https://hal.archives-ouvertes.fr/hal-02196173/document">paper</a>.</p>
+
+<h2 id="want-to-cite">Want to cite</h2>
+<div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@inproceedings<span class="p">{</span>breuils:hal-03168979,
+  TITLE = ,
+  AUTHOR = <span class="p">{</span>Breuils, St<span class="p">{</span><span class="k">\'</span>e<span class="p">}</span>phane and Kenmochi, Y. and Sugimoto, Akihiro<span class="p">}</span>,
+  URL = <span class="p">{</span>https://hal.archives-ouvertes.fr/hal-03168979<span class="p">}</span>,
+  BOOKTITLE = ,
+  ADDRESS = <span class="p">{</span>Uppsala, Sweden<span class="p">}</span>,
+  YEAR = <span class="p">{</span>2021<span class="p">}</span>,
+  MONTH = May,
+  PDF = <span class="p">{</span>https://hal.archives-ouvertes.fr/hal-03168979/file/2021<span class="p">_</span>DGMM<span class="p">_</span>Stephane.pdf<span class="p">}</span>,
+  HAL<span class="p">_</span>ID = <span class="p">{</span>hal-03168979<span class="p">}</span>,
+  HAL<span class="p">_</span>VERSION = <span class="p">{</span>v1<span class="p">}</span>,
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

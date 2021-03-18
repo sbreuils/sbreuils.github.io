@@ -1,0 +1,37 @@
+I"Þ
+<h2 id="digital-geometry-and-geometric-algebra">Digital geometry and geometric algebra</h2>
+
+<p>This part of my research aims at exploring digital geometry with geometric algebra. In particular, we focus on 2D bijective digitized reflections and rotations. We first studied the digitization through geometric algebra, we characterized the set of bijective digitized reflections in the plane.  We derived new bijective digitized rotations as compositions of bijective digitized reflections since any rotation is represented as the composition of two reflections. We also compared them with those obtained through geometric transformations by computing their distributions.</p>
+
+<h2 id="c-implementation">C++ implementation</h2>
+
+<p><a href="https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml"><img src="https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml/badge.svg" alt="build on linux" /></a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sbreuils/GADigitizedTransformations.git
+</code></pre></div></div>
+
+<h2 id="want-to-know-some-details">Want to know some details</h2>
+
+<p>The first paper is available <a href="https://hal.archives-ouvertes.fr/hal-02196173/document">here</a>. This is a collaboration with <a href="http://igm.univ-mlv.fr/~kenmochi/index.php?section=home&amp;subsection=&amp;language=en">Yukiko Kenmochi</a> and <a href="http://research.nii.ac.jp/~sugimoto/">Akihiro Sugimoto</a>.</p>
+
+<h2 id="want-to-cite">Want to cite</h2>
+
+<figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex">@inproceedings{breuils:hal-03168979,
+  TITLE = {Visiting bijective digitized reflections and rotations using geometric algebra},
+  AUTHOR = {Breuils, St{\'e}phane and Kenmochi, Y. and Sugimoto, Akihiro},
+  URL = {https://hal.archives-ouvertes.fr/hal-03168979},
+  BOOKTITLE = {International Conference on Discrete Geometry and Mathematical Morphology},
+  ADDRESS = {Uppsala, Sweden},
+  YEAR = {2021},
+  MONTH = May,
+  PDF = {https://hal.archives-ouvertes.fr/hal-03168979/file/2021_DGMM_Stephane.pdf},
+  HAL_ID = {hal-03168979},
+  HAL_VERSION = {v1},
+}</code></pre></figure>
+
+<h2 id="slides-of-the-beginning-of-the-project-in-french">Slides of the beginning of the project (in French)</h2>
+
+<p>Here you can find the slides presented at the French conference <a href="https://gdmm2020.sciencesconf.org/">DGMM</a>. In short, this conference</p>
+<p align="center">
+<iframe src="https://gacv.slides.com/sbreuils/gdr_dgmm2021_presentation_breuils/embed?style=dark&amp;byline=hidden" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+</p>
+:ET

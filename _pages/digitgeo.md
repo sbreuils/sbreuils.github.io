@@ -5,36 +5,45 @@ author_profile: true
 ---
 
 
-## Garamon
-stands for Geometric Algebra Recursive Monster. It is a C++ library generator synthesizing efficient C++ libraries implementing geometric algebras in both low and higher dimensions, with any arbitrary metric. The library generator is designed to produce easy to install, easy to use, effective and numerically stable libraries. The design of the libraries is based on a prefix tree data structure and a recursive scheme for high dimensions. You can find some of the tested algebras with references just below.
+## Digital geometry and geometric algebra
 
-### Easy to use
-Very intuitive way to compute and test Geometric Algebra. Here is an example of computation in the Conformal Geometric Algebra framework reproducing the computation of the horizon as seen by an observer in a view point P:
-```cpp
-Mvec<double> P  = point<double>(px,py,pz); // view point
-Mvec<double> M  = e0<double>(); // center point of the earth
-Mvec<double> Sphere = M−0.5*r*r* einf<double>();// sphere representing Earth (center M, radius r)
-Mvec<double> K = P + (P | Sphere)*einf<double>();// sphere around P
-Mvec<double> circle = Sphere ^ K;// intersecting circle
+This part of my research aims at exploring digital geometry with geometric algebra. In particular, we focus on 2D bijective digitized reflections and rotations. We first studied the digitization through geometric algebra, we characterized the set of bijective digitized reflections in the plane.  We derived new bijective digitized rotations as compositions of bijective digitized reflections since any rotation is represented as the composition of two reflections. We also compared them with those obtained through geometric transformations by computing their distributions. 
+
+
+
+## C++ implementation
+
+[![build on linux](https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml/badge.svg)](https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml)
 ```
-
-### Tested algebras with references 
-All the the following algebras have their own plugin and code that you can use. 
-
-| Initials | CCGA | QCGA | DCGA | DPGA | CGA | STA | PGA |
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| handle (short overview )       | cubic curves | quadric surfaces intersection and from control points | quadric surfaces with implicit equation | quadric surfaces and projective transformation  | flats and rounds | Space-time Algebra | Projective geometry |     
-
-
-## Want to test
-
-```
-git clone https://github.com/vincentnozick/garamon.git
+git clone https://github.com/sbreuils/GADigitizedTransformations.git
 ```
 
 
 
-## Want to know the details of the implementation
-If you want to know more about how we can use trees with Geometric Algebra or just the details of the implementation, please take a look at this [paper](https://hal.archives-ouvertes.fr/hal-02196173/document).
+## Want to know some details 
+
+The first paper is available [here](https://hal.archives-ouvertes.fr/hal-02196173/document). This is a collaboration with [Yukiko Kenmochi](http://igm.univ-mlv.fr/~kenmochi/index.php?section=home&subsection=&language=en) and [Akihiro Sugimoto](http://research.nii.ac.jp/~sugimoto/).
 
 
+## Want to cite
+
+```bibtex
+@inproceedings{breuils:hal-03168979,
+  title = {Visiting bijective digitized reflections and rotations using geometric algebra},
+  author = {Breuils, St{\'e}phane and Kenmochi, Y. and Sugimoto, Akihiro},
+  url = {https://hal.archives-ouvertes.fr/hal-03168979},
+  booktitle = {International Conference on Discrete Geometry and Mathematical Morphology},
+  address = {Uppsala, Sweden},
+  year = {2021},
+  month = May
+}
+```
+
+
+
+## Slides of the beginning of the project (in French)
+
+Here you can find the slides presented at the French conference [DGMM](https://gdmm2020.sciencesconf.org/). In short, this conference  
+<p align="center">
+<iframe src="https://gacv.slides.com/sbreuils/gdr_dgmm2021_presentation_breuils/embed?style=dark&byline=hidden" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</p>

@@ -1,0 +1,36 @@
+I"ù<h2 id="digital-geometry-and-geometric-algebra">Digital geometry and geometric algebra</h2>
+
+<p>This part of my research aims at exploring digital geometry with geometric algebra. In particular, we focus on the study of bijective digital transformations</p>
+
+<h3 id="slides-of-the-beginning-of-the-project-in-french">Slides of the beginning of the project (in French)</h3>
+
+<p>Here you can find the slides presented at</p>
+<p align="center">
+<iframe src="https://gacv.slides.com/sbreuils/gdr_dgmm2021_presentation_breuils/embed?style=dark&amp;byline=hidden" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+</p>
+
+<h2 id="want-to-test">Want to test</h2>
+
+<p><a href="https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml"><img src="https://github.com/sbreuils/GADigitizedTransformations/actions/workflows/linuxBuild.yml/badge.svg" alt="build on linux" /></a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sbreuils/GADigitizedTransformations.git
+</code></pre></div></div>
+
+<h2 id="want-to-know-the-details-of-the-implementation">Want to know the details of the implementation</h2>
+
+<p>If you want to know more about how we can use trees with Geometric Algebra or just the details of the implementation, please take a look at this <a href="https://hal.archives-ouvertes.fr/hal-02196173/document">paper</a>.</p>
+
+<h2 id="want-to-cite">Want to cite</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@inproceedings{breuils:hal-03168979,
+  TITLE = ,
+  AUTHOR = {Breuils, St{\'e}phane and Kenmochi, Y. and Sugimoto, Akihiro},
+  URL = {https://hal.archives-ouvertes.fr/hal-03168979},
+  BOOKTITLE = ,
+  ADDRESS = {Uppsala, Sweden},
+  YEAR = {2021},
+  MONTH = May,
+  PDF = {https://hal.archives-ouvertes.fr/hal-03168979/file/2021_DGMM_Stephane.pdf},
+  HAL_ID = {hal-03168979},
+  HAL_VERSION = {v1},
+}
+</code></pre></div></div>
+:ET
