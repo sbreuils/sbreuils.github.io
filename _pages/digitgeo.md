@@ -41,9 +41,10 @@ The first paper is available [here](https://hal.archives-ouvertes.fr/hal-0219617
 
 
 
-## Slides of the beginning of the project (in French)
+## Slides of the beginning of the project
 
-Here you can find the slides presented at the French conference [DGMM](https://gdmm2020.sciencesconf.org/). In short, this conference  
+Here you can find the slides presented at DGMM conference [DGMM](https://www.dgmm2021.se/) in May 2021:
 <p align="center">
-<iframe src="https://gacv.slides.com/sbreuils/gdr_dgmm2021_presentation_breuils/embed?style=dark&byline=hidden" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://gacv.slides.com/sbreuils/dgmm2021_digitizedreflections_breuils_slides-b8aa6e/embed?byline=hidden&share=hidden" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </p>
+
