@@ -3,7 +3,7 @@ title: "About"
 permalink: "index.html"
 ---
 
-I work as a postdoctoral fellow at the National Institute of Informatics, Tokyo in the computer science department under the supervision of Prof. [Akihiro Sugimoto](http://research.nii.ac.jp/~sugimoto/). My PhD. defense held the 17th of December 2018. My PhD. advisors were Vincent Nozick and Laurent Fuchs. The last version of my PhD. manuscript can be found here. My research concerns Geometric Algebras (Clifford Algebras) implementation with applications for curves and surfaces representation and manipulation.  
+I work as a Assistant Professor at the University of Savoie Mont-Blanc, France in the department of Mathematics. I worked previously under the supervision of Prof. [Akihiro Sugimoto](http://research.nii.ac.jp/~sugimoto/) at the [National Institute of Informatics](https://www.nii.ac.jp/en/), Tokyo, Japan. My PhD. defense held the 17th of December 2018. My PhD. advisors were Vincent Nozick and Laurent Fuchs. The last version of my PhD. manuscript can be found here. My research concerns Geometric Algebras (Clifford Algebras) implementation with applications for curves and surfaces representation and manipulation.  
 
 
 
@@ -23,9 +23,9 @@ Here is a list of ongoing collaborations
 
 ## Research
 - Geometric Algebra
+- Digital Geometry
 - Surfaces and curves manipulation
 - Algebra, Architecture and Algorithmic
-- Digital Geometry
 
 
 ## Professional background
@@ -34,11 +34,7 @@ Here is a list of ongoing collaborations
 - 2015-2018 : Ph.D. degree in computer sciences at Universite Paris-Est.
 
 ## Address
-[JFLI](https://jfliwp.prod.lamp.cnrs.fr/), 国立情報学研究所 (National Institute of Informatics)
-National Center of Sciences
-2-1-2 Hitotsubashi, Chiyoda-ku,
-Tokyo 101-8430,
-JAPAN
-
-Office: 1408 / 1218
-Tel : +81 (0) 70-1275-6695
+[LAMA](https://www.lama.univ-savoie.fr/index.php), 
+Department of Mathematics,
+Savoie University, France
+Office: 128

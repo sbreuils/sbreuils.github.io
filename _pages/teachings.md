@@ -3,7 +3,12 @@ title: "Teachings"
 permalink: /teachings/
 author_profile: true
 ---
-My current total of hours of teachings is **345h**
+
+## 2021-2022
+- Programming in c++
+Master degree (1st year)
+Lectures, Tutorials (28h)
+
 
 ## 2018-2019
 - Algorithmic and Programming in Python
@@ -43,7 +48,7 @@ Lab works (12h)
 Master degree/IMAC (1st year)
 Lectures, Tutorials (45h) with Bruno Jartoux
 - Image processing
-Master degree (1nd year)
+Master degree (1st year)
 Lab works (12h) with Chaohui Wang
 
 ## 2015-2016
