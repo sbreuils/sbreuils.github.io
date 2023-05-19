@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Publications - Stephane Breuils ステファン ブレイユ</title>
+<!-- begin _includes/seo.html --><title>Interns and PhDs - Stephane Breuils ステファン ブレイユ</title>
 <meta name="description" content="Stephane Breuils’ webpage.">
 
 
@@ -19,8 +19,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Stephane Breuils ステファン ブレイユ">
-<meta property="og:title" content="Publications">
-<meta property="og:url" content="http://localhost:4000/publications/">
+<meta property="og:title" content="Interns and PhDs">
+<meta property="og:url" content="http://localhost:4000/students/">
 
 
   <meta property="og:description" content="Stephane Breuils’ webpage.">
@@ -40,7 +40,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/publications/">
+<link rel="canonical" href="http://localhost:4000/students/">
 
 
 
@@ -284,7 +284,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Publications">
+    <meta itemprop="headline" content="Interns and PhDs">
     
     
     
@@ -292,7 +292,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Publications
+          <h1 id="page-title" class="page__title" itemprop="headline">Interns and PhDs
 </h1>
           
         </header>
@@ -300,10 +300,18 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><small>(the generation of this list take a few moments)</small>
-<script src="../_pages/fetchPublications.js"></script></p>
-<div id="sbreuils_papers"></div>
+        ## current interns
+- Simon Marsan 
+- Elliott Moiroud
+- dd
+- Julien Rodrigues
 
+
+
+## current 
+
+
+## alumni students
 
         
       </section>

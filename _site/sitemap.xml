@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://localhost:4000/students/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
 </url>
 <url>
@@ -25,7 +28,10 @@
 <loc>http://localhost:4000/software/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/teachings/</loc>
+<loc>http://localhost:4000/students/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/courses/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/_pages/DRSL.html</loc>
