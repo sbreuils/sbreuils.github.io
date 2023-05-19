@@ -2,9 +2,11 @@
 main:
   - title: "Publications"
     url: /publications/
-  - title: "Teachings"
-    url: /teachings/
+  - title: "Interns and PhDs"
+    url: /students/
   - title: "Software"
     url: /software/
   - title: "Digital Geometry"
     url: /digitgeo/
+  - title: "Courses"
+    url: /courses/

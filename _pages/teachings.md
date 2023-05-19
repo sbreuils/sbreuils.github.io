@@ -1,16 +1,20 @@
 ---
-title: "Teachings"
-permalink: /teachings/
+title: "Teaching"
+permalink: /courses/
 author_profile: true
 ---
 
-## 2021-2022
-- Programming in c++
-Master degree (1st year)
-Lectures, Tutorials (28h)
+## Since 2021
+Mainly courses in 
+- Python, 
+- c++ (object and generic programming) 
+- image processing 
+- data analysis and introduction to databases
 
 
-## 2018-2019
+## Before 2021
+
+### 2018-2019
 - Algorithmic and Programming in Python
 Bachelor degree (1st year)
 Lectures, Tutorials (36h)
@@ -32,12 +36,12 @@ Lab works (12h)
 - Syntax analysis
 Bachelor degree (3rd year)
 
-## 2017-2018
+### 2017-2018
 - Information system
 Bachelor degree (1st year)
 Lectures, Tutorials (28h)
 
-## 2016-2017
+### 2016-2017
 - Introduction to signal processing
 Bachelor degree (1st year)
 Lectures, Tutorials (12h)
@@ -51,7 +55,7 @@ Lectures, Tutorials (45h) with Bruno Jartoux
 Master degree (1st year)
 Lab works (12h) with Chaohui Wang
 
-## 2015-2016
+### 2015-2016
 - Algorithmic and Programming in Python
 Bachelor degree (1st year)
 Tutorials (24h)
