@@ -12,9 +12,9 @@ Here you can find some useful precomputed tables of bijective rotation approches
 
 ## CBDR tables
 For CBDR, you can find below some
-- [n = 2 , kmax = 15](https://sbreuils.github.io/tables/CBDRTable_4_30.txt) 
-- [n = 4 , kmax = 30](https://sbreuils.github.io/tables/CBDRTable_4_30.txt) 
-- [n = 2 , kmax = 30](https://sbreuils.github.io/tables/CBDRTable_2_30.txt) 
+- [n = 2 , kmax = 15](https://drive.google.com/file/d/1Vw9uO_RibArFh1nv5EUxLopewHGQQ_DF/view?usp=sharing) 
+- [n = 4 , kmax = 30](https://drive.google.com/file/d/1Vw9uO_RibArFh1nv5EUxLopewHGQQ_DF/view?usp=sharing) 
+- [n = 2 , kmax = 30](https://drive.google.com/file/d/1j23yKVH-L5xIwdxm3UQ1byYzTWS-OYBK/view?usp=drive_link) 
 
 ## OTC tables
 For OTC, you can find below some links for different ring's width:
