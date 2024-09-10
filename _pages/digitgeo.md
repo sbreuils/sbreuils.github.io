@@ -41,10 +41,3 @@ The first paper is available [here](https://hal.archives-ouvertes.fr/hal-0219617
 
 
 
-## Slides of the beginning of the project
-
-Here you can find the slides presented at DGMM conference [DGMM](https://www.dgmm2021.se/) in May 2021:
-<p align="center">
-<iframe src="https://gacv.slides.com/sbreuils/dgmm2021_digitizedreflections_breuils_slides-b8aa6e/embed?byline=hidden&share=hidden" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</p>
-
